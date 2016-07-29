@@ -1,0 +1,269 @@
+//  _____           _                    _____ _         _
+// /  __ \         | |                  /  ___| |       | |
+// | /  \/_   _ ___| |_ ___  _ __ ___   \ `--.| |_ _   _| | ___  ___
+// | |   | | | / __| __/ _ \| '_ ` _ \   `--. \ __| | | | |/ _ \/ __|
+// | \__/\ |_| \__ \ || (_) | | | | | | /\__/ / |_| |_| | |  __/\__ \
+//  \____/\__,_|___/\__\___/|_| |_| |_| \____/ \__|\__, |_|\___||___/
+//                                                  __/ |
+//                                                 |___/
+
+@import 'variables';
+@import 'mixins';
+
+#map {
+    width: 50%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#mapReset {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    z-index: 100;
+    border: 1px solid $black33;
+    background-color: white;
+    font-family: $sans;
+    text-transform: uppercase;
+    color: $black33;
+    padding: 5px 10px;
+    cursor: pointer;
+    @include type(1.4rem, 2.4rem, 0);
+    font-weight: bold;
+    @include transition(all, .2s, ease-out);
+    &:focus {
+        outline: 0;
+    }
+    &.moved {
+        top: 10px;
+    }
+}
+
+#mapExpander {
+    display: none;
+}
+
+#wrapper {
+    width: 50%;
+    padding: 20px 0px;
+    float: left;
+}
+
+.mapboxgl-ctrl-top-right {
+    margin: 60px 10px 0 0;
+    @include transition(all, .2s, ease-out);
+    &.moved {
+        margin: 10px 10px 0 0;
+    }
+}
+
+.dixonSection {
+    margin-bottom: 6rem;
+    h3, h4, h5, h6 {
+        font-family: $custom;
+    }
+    h3 {
+        padding: 0 30px;
+        font-weight: 700;
+        text-transform: uppercase;
+        @include type(9.6rem, 9.6rem, 0rem)
+        -webkit-mask-image: url("../images/_testTexture2.png");
+    	-o-mask-image: url("../images/_testTexture2.png");
+    	-moz-mask-image: url("../images/_testTexture2.png");
+    	mask-image:  url("../images/_testTexture2.png");
+        color: white;
+    }
+    h4 {
+        padding: 0 30px;
+        font-weight: 400;
+        color: white;
+        @include type(3.3rem, 3.6rem, 0);
+        &:after {
+            @include psuedoElement(100%, 5px);
+            background-color: white;
+            top: 10px;
+            -webkit-mask-image: url("../images/_testTexture2.png");
+        	-o-mask-image: url("../images/_testTexture2.png");
+        	-moz-mask-image: url("../images/_testTexture2.png");
+        	mask-image:  url("../images/_testTexture2.png");
+        }
+    }
+    h5 {
+        @include type(3rem, 3.6rem, 0);
+        color: $black33;
+    }
+    h6 {
+        color: white;
+        background-color: $black33;
+        display: inline-block;
+        padding: 3px 5px 0;
+        text-transform: uppercase;
+        @include type(1.8rem, 2.4rem, 1.2rem);
+
+    }
+    p {
+        @include type(1.5rem, 2.4rem, 1.2rem);
+        font-family: $sans;
+    }
+    img {
+        width: 100%;
+    }
+}
+
+.addy {
+    margin-left: 30px;
+    font-family: $custom !important;
+    font-size: 2rem !important;
+    line-height: 2.4rem;
+    margin-bottom: 2.4rem !important;
+    display: inline-block;
+    color: white;
+    text-transform: uppercase;
+    &:after {
+        @include psuedoElement(100%, 3px);
+        background-color: white;
+        -webkit-mask-image: url("../images/_testTexture2.png");
+        -o-mask-image: url("../images/_testTexture2.png");
+        -moz-mask-image: url("../images/_testTexture2.png");
+        mask-image:  url("../images/_testTexture2.png");
+    }
+}
+.dixonHead {
+    padding: 0 0 4.8rem;
+    background-color: $dixonRed;
+    margin-bottom: 2.4rem;
+    img {
+        margin-bottom: 2.4rem;
+    }
+}
+.dixonContent {
+    padding: 2.4rem 30px;
+}
+
+.dixonStories {
+    ul {
+        font-family: $sans;
+        margin-bottom: 2.4rem;
+    }
+    li {
+        display: inline-block;
+        font-weight: bold;
+        @include type(1.4rem, 30px, 0);
+        color: $black33;
+        margin-right: 10px;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
+        text-align: center;
+        border: 3px solid $black33;
+        @include transition(all, .25s, ease-out);
+        position: relative;
+        &:last-of-type {
+            margin-right: 0;
+        }
+        &:hover, &.activeItem {
+            background-color: $black33;
+            color: white;
+        }
+        &.activeItem {
+            &:after {
+                @include psuedoElement(10px, 10px, absolute);
+                @include rotate(45deg);
+                bottom: -7px;
+                left: 50%;
+                margin-left: -5px;
+                background-color: $black33;
+            }
+        }
+    }
+}
+
+.dixonStory {
+    .imageGroup {
+        width: 40%;
+        float: right;
+        margin: 0 0 3.6rem 3.6rem;
+        p {
+            font-family: $sans;
+            @include type(1.2rem, 1.5rem, 1.2rem);
+            color: $black66;
+        }
+    }
+}
+
+.mapper {
+    display: none;
+}
+
+
+
+.noShow {
+    display: none;
+}
+
+.noScroll {
+    overflow: hidden;
+}
+
+
+@media (max-width: 900px) {
+
+    #map {
+        width: 90%;
+        right: -14px;
+        transform: translate3d(100%, 0, 0);
+        @include transition(all, .5s, ease-out);
+        z-index: 25;
+        &.viewable {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    #wrapper {
+        width: 100%;
+        float: none;
+    }
+
+    #mapExpander {
+        display: inline-block;
+        position: fixed;
+        top: 70px;
+        right: 60px;
+        font-size: 24px !important;
+        line-height: 35px !important;
+        width: 35px;
+        height: 35px;
+        background-color: $black33;
+        color: white;
+        text-align: center;
+        border-radius: 50%;
+        z-index: 50;
+        @include transition(all, .25s, ease-out);
+        &.moved {
+            top: 20px;
+        }
+    }
+
+    .mapper {
+        display: inline-block;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+    #wrapper {
+        background-color: grey;
+    }
+}
+
+// @media (max-aspect-ratio: 1/2) and (max-width: 600px)  {
+//     #map {
+//         height: 50vh;
+//     }
+//     #wrapper {
+//         background-color: red;
+//     }
+// }

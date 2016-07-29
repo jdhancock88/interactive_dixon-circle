@@ -1,0 +1,318 @@
+{%extends 'base.html'%}
+{%import 'partials/img.html' as img%}
+
+
+{%block custom_meta%}
+<meta content="{{keywords|join(',')}}" name="keywords" />
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<meta content="{{shareText}}" name="description" />
+<title>{{pageTitle}}</title>
+<meta property="og:url" content="{{url}}" />
+<meta property="og:title" content="{{shareTitle}}"/>
+<meta property="og:description" content="{{shareText}}" name="description"/>
+<meta property="og:image" content="{{imgURL}}"/>
+<meta property="og:image:height" content="{{imgHeight}}"/>
+<meta property="og:image:width" content="{{imgWidth}}"/>
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@{{sectionTwitter}}" />
+<meta name="twitter:creator" content="@{{authorTwitter}}" />
+
+<meta name="liveFyreID" content="{{id}}" />
+
+<meta name="parsely-page" id='parsely-page' content='{"title": "{{shareTitle}}", "link": "{{url}}", "image_url": "{{imgURL}}", "type": "post", "post_id": "{{id}}", "pub_date": "{{publishDate}}", "section": "{{section}}", "author": ["{{authors}}"], "tags": ["{{keywords|join('","')|safe}}"]}' />
+
+<meta property="og:keywords" content="{{keywords|join(',')}}"/>
+
+<meta name="news_keywords" content="{{keywords|join(',')}}"/>
+{%endblock%}
+
+
+{%block custom_head%}
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.css' rel='stylesheet' />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<script type="text/javascript" src="js/geojson.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.0/lodash.min.js"></script>
+{%endblock%}
+
+
+{%block ad%}
+<script type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+<script type="text/javascript">
+DFP_networkId = "11222444";
+var DFPSlotSizes = [];
+
+var DFP_sitepage = "m.DMN/interactives";
+DFPSlotSizes = [320,50]
+var adSlot0 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFPSlotSizes, "dfpAdPositionTop");
+adSlot0.setTargeting("position", "x01");
+adSlot0.addService(googletag.pubads());
+
+/*
+var adSlot1 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFPSlotSizes, "dfpAdPositionMiddle");
+adSlot1.setTargeting("position", "x02");
+adSlot1.addService(googletag.pubads());
+*/
+
+/*
+var adSlot2 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFPSlotSizes, "dfpAdPositionBottom");
+adSlot2.setTargeting("position", "x03");
+adSlot2.addService(googletag.pubads());
+*/
+
+
+</script>
+<script type="text/javascript">
+googletag.pubads().enableSingleRequest();
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+</script>
+{%endblock%}
+
+
+{%block content%}
+<section id="map">
+<button id="mapReset">Reset Map</button>
+</section>
+<!-- end contentHeader -->
+
+<div id="wrapper">
+
+<section class="contentWell clearFix">
+
+	<header id="storyHead" >
+		<h3>Label, if needed</h3>
+		<h1>Main Headline</h1>
+		<h2>Deck head goes in this spot here</h2>
+	</header>
+		<!-- end storyHead -->
+
+	<div class="bylineBlock">
+		<p>By <a target="blank" href="mailto:emailaddresshere">Writer Name</a> <!-- <a class="authorTwitter" href="twitterurlhere" target="_blank">Twitter</a> --> | Staff Writer</p>
+		<p>Published Month Date, Year</p>
+		</div>
+	<!-- end bylineBlock -->
+
+		<div class="shareComments shareCommentsTop">
+		<ul id="share-bar1" class="width-auto-hack"></ul>
+	</div>
+	<!-- end shareComments -->
+
+
+
+	<p class="intro"><span class="dropcap">A</span>n opening paragraph goes here. orem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum tortor a eleifend sagittis. Quisque laoreet elit vitae turpis aliquet tincidunt. Nulla molestie vitae purus eget dignissim. Quisque blandit nibh lorem, non mollis velit rutrum ac. Pellentesque pharetra mattis luctus.</p>
+
+  {%include "adblock1.html" %}
+
+	<i id="mapExpander" class="fa fa-map-marker" aria-hidden="true"></i>
+
+    <div id="dixon1" class="dixonSection">
+		<div class="dixonHead">
+			<img src="images/_grocery.jpg" alt="Dixon Grocery"  />
+
+			<p class="addy">3752 Dixon Avenue, Dallas</p>
+			<p class="mapper">View map</p>
+	        <h3>The Corner</h3>
+			<h4>Dixon Grocery is either a social hangout, an open-air drug markert or the downfall of the neighborhood — depending on who you ask</h4>
+
+		</div>
+		<div class="dixonContent">
+			<div class="dixonStories clearFix">
+				<ul>
+					<li class="activeItem">1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+
+				<div class="dixonStory clearFix">
+					<div class="imageGroup">
+						<img src="images/_freddy.jpg" alt="Freddy Smith"  />
+						<p>Freddy Smith</p>
+					</div>
+					<h5>How you do in the hood</h5>
+					<h6>as told by Freddie Smith</h6>
+					<p>Freddy Smith used to hang out on a corner just like it when he was younger.</p>
+					<p>"Where we got to go? From this end to that end is apartments,” he says. "They got a law there saying you can't go in the [recreation] center because it's a summertime camp. And you can't stand there because it's a church."</p>
+					<p> The corner is the neighborhood gathering spot, where residents go to shoot dice or shoot the breeze. And yeah, Smith agreed, some go there to sell drugs, which have been part of the local economy as long as he’s lived in Dixon.</p>
+					<p>"All the young kids doing now is trying to keep a dollar in their pockets," Smith said. "Nobody coming to nobody putting a pistol upside their head, say 'you should have bought my stuff.'" </p>
+				</div>
+
+				<div class="dixonStory noShow clearFix">
+
+					<p>A block down the street from the corner store, two women sit in the park smoking cigarettes. One carries a baseball bat in her purse. </p>
+					<p>They have lived in Dixon nearly all their lives, and will only talk about the men at the store if their names aren’t used.</p>
+					<p>Woman 1: That store has been there forever. And half the people who hang at that store right now don’t live over here.</p>
+					<p>Woman 2: They come and destroy our neighborhood. That’s what they do every day, seven days a week.</p>
+					<p>Woman 1: I won’t even stop at the store ... I take my bat that way. I’m not going to say I’ll use the bat, but they don’t know I won’t. And see, all those that know me, first thing they want to know is where is my bat!</p>
+					<p>Woman 2: They had two shootings in less than a month at the store. One boy got shot six times, and the other guy got his intestines shot out.</p>
+				</div>
+
+				<div class="dixonStory noShow clearFix">
+					<p>A faint stench of pot wafts into Dixon Grocery each time the door swings open. And the door swings constantly as the men who loited outside day and night come in for beer, cigar and the occasional violent crime.</p>
+					<p>Behind the counter, William Morel points to a display stand lined with trespass warnings.</p>
+					<p>"I have to call the police," he says. "Look at this. How many do you see right there? One two three four five six seven eight."</p>
+					<p>But the men come back as soon as the police roll out.</p>
+					<p>"If you come 5, 6, 8 o'clock you're going to see the same people," Morel says. "Selling drugs, all day. All kinds of drugs."</p>
+					<p>In April, a fistfight over a small debt ended after one man fetched a pistol from his SUV and shot the other in the leg. It was the second shooting in the store parking lot that month.</p>
+				</div>
+
+			</div>
+		</div>
+
+    </div>
+
+    <div id="dixon2" class="dixonSection">
+		<img src="images/_grocery.jpg" alt="Dixon Grocery"  />
+
+		<p class="addy">3752 Dixon Avenue, Dallas</p>
+        <h3>The Corner</h3>
+		<h4>Dixon Grocery is either a social hangout, an open-air drug markert or the downfall of the neighborhood — depending on who you ask</h4>
+
+		<div class="dixonStories clearFix">
+			<ul>
+				<li class="activeItem">1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+
+			<div class="dixonStory">
+				<p>Freddy Smith used to hang out on a corner just like it when he was younger.</p>
+				<p>"Where we got to go? From this end to that end is apartments,” he says. "They got a law there saying you can't go in the [recreation] center because it's a summertime camp. And you can't stand there because it's a church."</p>
+				<p> The corner is the neighborhood gathering spot, where residents go to shoot dice or shoot the breeze. And yeah, Smith agreed, some go there to sell drugs, which have been part of the local economy as long as he’s lived in Dixon.</p>
+				<p>"All the young kids doing now is trying to keep a dollar in their pockets," Smith said. "Nobody coming to nobody putting a pistol upside their head, say 'you should have bought my stuff.'" </p>
+			</div>
+
+			<div class="dixonStory noShow">
+				<p>A block down the street from the corner store, two women sit in the park smoking cigarettes. One carries a baseball bat in her purse. </p>
+				<p>They have lived in Dixon nearly all their lives, and will only talk about the men at the store if their names aren’t used.</p>
+				<p>Woman 1: That store has been there forever. And half the people who hang at that store right now don’t live over here.</p>
+				<p>Woman 2: They come and destroy our neighborhood. That’s what they do every day, seven days a week.</p>
+				<p>Woman 1: I won’t even stop at the store ... I take my bat that way. I’m not going to say I’ll use the bat, but they don’t know I won’t. And see, all those that know me, first thing they want to know is where is my bat!</p>
+				<p>Woman 2: They had two shootings in less than a month at the store. One boy got shot six times, and the other guy got his intestines shot out.</p>
+			</div>
+
+			<div class="dixonStory noShow">
+				<p>A faint stench of pot wafts into Dixon Grocery each time the door swings open. And the door swings constantly as the men who loited outside day and night come in for beer, cigar and the occasional violent crime.</p>
+				<p>Behind the counter, William Morel points to a display stand lined with trespass warnings.</p>
+				<p>"I have to call the police," he says. "Look at this. How many do you see right there? One two three four five six seven eight."</p>
+				<p>But the men come back as soon as the police roll out.</p>
+				<p>"If you come 5, 6, 8 o'clock you're going to see the same people," Morel says. "Selling drugs, all day. All kinds of drugs."</p>
+				<p>In April, a fistfight over a small debt ended after one man fetched a pistol from his SUV and shot the other in the leg. It was the second shooting in the store parking lot that month.</p>
+			</div>
+
+		</div>
+    </div>
+
+    <div id="dixon3" class="dixonSection">
+        <h4>Section header</h4>
+        <p>plagiarism linkbait explainer rubber cement YouTube Buttry 5 praise erasers & how to avoid them Patch newspaper strike going forward lede, Reuters but what's the business model Gardening & War section The Daily a giant stack of newspapers that you'll never read linking community CNN leaves it there Instagram try PR, The Weekender social media nut graf stream Google+ AOL digital first monetization Ushahidi. semipermeable hot news doctrine view from nowhere audience atomization overcome hyperhyperlocal twitterati awesome, stupid commenters algorithms commons-based peer production cancel my subscription.</p>
+        <p>synergize Sulzberger newsonomics community Aron Pilhofer The Weekender RSS media diet get me rewrite Instagram gutter, crowdsourcing collaboration serendipity Nook Dayton for under $900 a day every dog loves food bloggers in their mother's basement newspaper strike #twittermakesyoustupid gamification, recontextualize kitchen table of the future lede tools linking MinnPost open source Zite shoot a photo. Clay Shirky RSS CPC got drudged free as in beer horse-race coverage Twitter topples dictators incent Quora, Like button newsroom cafe he said she said Lucius Nieman data visualization TechCrunch Julian Assange Jeff Jarvis WSJ, the medium is the message Encyclo Google+ ProPublica tools newspaper strike process vs. product.</p>
+    </div>
+
+    <div id="dixon4" class="dixonSection">
+        <h4>Section header</h4>
+        <p>plagiarism linkbait explainer rubber cement YouTube Buttry 5 praise erasers & how to avoid them Patch newspaper strike going forward lede, Reuters but what's the business model Gardening & War section The Daily a giant stack of newspapers that you'll never read linking community CNN leaves it there Instagram try PR, The Weekender social media nut graf stream Google+ AOL digital first monetization Ushahidi. semipermeable hot news doctrine view from nowhere audience atomization overcome hyperhyperlocal twitterati awesome, stupid commenters algorithms commons-based peer production cancel my subscription.</p>
+        <p>synergize Sulzberger newsonomics community Aron Pilhofer The Weekender RSS media diet get me rewrite Instagram gutter, crowdsourcing collaboration serendipity Nook Dayton for under $900 a day every dog loves food bloggers in their mother's basement newspaper strike #twittermakesyoustupid gamification, recontextualize kitchen table of the future lede tools linking MinnPost open source Zite shoot a photo. Clay Shirky RSS CPC got drudged free as in beer horse-race coverage Twitter topples dictators incent Quora, Like button newsroom cafe he said she said Lucius Nieman data visualization TechCrunch Julian Assange Jeff Jarvis WSJ, the medium is the message Encyclo Google+ ProPublica tools newspaper strike process vs. product.</p>
+    </div>
+
+    <div id="dixon5" class="dixonSection">
+        <h4>Section header</h4>
+        <p>plagiarism linkbait explainer rubber cement YouTube Buttry 5 praise erasers & how to avoid them Patch newspaper strike going forward lede, Reuters but what's the business model Gardening & War section The Daily a giant stack of newspapers that you'll never read linking community CNN leaves it there Instagram try PR, The Weekender social media nut graf stream Google+ AOL digital first monetization Ushahidi. semipermeable hot news doctrine view from nowhere audience atomization overcome hyperhyperlocal twitterati awesome, stupid commenters algorithms commons-based peer production cancel my subscription.</p>
+        <p>synergize Sulzberger newsonomics community Aron Pilhofer The Weekender RSS media diet get me rewrite Instagram gutter, crowdsourcing collaboration serendipity Nook Dayton for under $900 a day every dog loves food bloggers in their mother's basement newspaper strike #twittermakesyoustupid gamification, recontextualize kitchen table of the future lede tools linking MinnPost open source Zite shoot a photo. Clay Shirky RSS CPC got drudged free as in beer horse-race coverage Twitter topples dictators incent Quora, Like button newsroom cafe he said she said Lucius Nieman data visualization TechCrunch Julian Assange Jeff Jarvis WSJ, the medium is the message Encyclo Google+ ProPublica tools newspaper strike process vs. product.</p>
+    </div>
+
+    <div id="dixon6" class="dixonSection">
+        <h4>Section header</h4>
+        <p>plagiarism linkbait explainer rubber cement YouTube Buttry 5 praise erasers & how to avoid them Patch newspaper strike going forward lede, Reuters but what's the business model Gardening & War section The Daily a giant stack of newspapers that you'll never read linking community CNN leaves it there Instagram try PR, The Weekender social media nut graf stream Google+ AOL digital first monetization Ushahidi. semipermeable hot news doctrine view from nowhere audience atomization overcome hyperhyperlocal twitterati awesome, stupid commenters algorithms commons-based peer production cancel my subscription.</p>
+        <p>synergize Sulzberger newsonomics community Aron Pilhofer The Weekender RSS media diet get me rewrite Instagram gutter, crowdsourcing collaboration serendipity Nook Dayton for under $900 a day every dog loves food bloggers in their mother's basement newspaper strike #twittermakesyoustupid gamification, recontextualize kitchen table of the future lede tools linking MinnPost open source Zite shoot a photo. Clay Shirky RSS CPC got drudged free as in beer horse-race coverage Twitter topples dictators incent Quora, Like button newsroom cafe he said she said Lucius Nieman data visualization TechCrunch Julian Assange Jeff Jarvis WSJ, the medium is the message Encyclo Google+ ProPublica tools newspaper strike process vs. product.</p>
+    </div>
+
+    <div id="dixon7" class="dixonSection">
+        <h4>Section header</h4>
+        <p>plagiarism linkbait explainer rubber cement YouTube Buttry 5 praise erasers & how to avoid them Patch newspaper strike going forward lede, Reuters but what's the business model Gardening & War section The Daily a giant stack of newspapers that you'll never read linking community CNN leaves it there Instagram try PR, The Weekender social media nut graf stream Google+ AOL digital first monetization Ushahidi. semipermeable hot news doctrine view from nowhere audience atomization overcome hyperhyperlocal twitterati awesome, stupid commenters algorithms commons-based peer production cancel my subscription.</p>
+        <p>synergize Sulzberger newsonomics community Aron Pilhofer The Weekender RSS media diet get me rewrite Instagram gutter, crowdsourcing collaboration serendipity Nook Dayton for under $900 a day every dog loves food bloggers in their mother's basement newspaper strike #twittermakesyoustupid gamification, recontextualize kitchen table of the future lede tools linking MinnPost open source Zite shoot a photo. Clay Shirky RSS CPC got drudged free as in beer horse-race coverage Twitter topples dictators incent Quora, Like button newsroom cafe he said she said Lucius Nieman data visualization TechCrunch Julian Assange Jeff Jarvis WSJ, the medium is the message Encyclo Google+ ProPublica tools newspaper strike process vs. product.</p>
+    </div>
+
+    <div id="dixon8" class="dixonSection">
+        <h4>Section header</h4>
+        <p>plagiarism linkbait explainer rubber cement YouTube Buttry 5 praise erasers & how to avoid them Patch newspaper strike going forward lede, Reuters but what's the business model Gardening & War section The Daily a giant stack of newspapers that you'll never read linking community CNN leaves it there Instagram try PR, The Weekender social media nut graf stream Google+ AOL digital first monetization Ushahidi. semipermeable hot news doctrine view from nowhere audience atomization overcome hyperhyperlocal twitterati awesome, stupid commenters algorithms commons-based peer production cancel my subscription.</p>
+        <p>synergize Sulzberger newsonomics community Aron Pilhofer The Weekender RSS media diet get me rewrite Instagram gutter, crowdsourcing collaboration serendipity Nook Dayton for under $900 a day every dog loves food bloggers in their mother's basement newspaper strike #twittermakesyoustupid gamification, recontextualize kitchen table of the future lede tools linking MinnPost open source Zite shoot a photo. Clay Shirky RSS CPC got drudged free as in beer horse-race coverage Twitter topples dictators incent Quora, Like button newsroom cafe he said she said Lucius Nieman data visualization TechCrunch Julian Assange Jeff Jarvis WSJ, the medium is the message Encyclo Google+ ProPublica tools newspaper strike process vs. product.</p>
+    </div>
+
+
+  <!--
+    use the above include with adblock2.html and adblock3.html to place adblocks 2 and 3, then delete this comment.
+    it won't self-destruct, but it is cleaner
+  -->
+
+	<section class="credits clearFix">
+		<p>Author: <a href="mailto:emailaddress">Name</a></p>
+		<p>Editor: <a href="mailto:emailaddress">Name</a></p>
+		<p>Copy Editor: <a href="mailto:emailaddress">Name</a></p>
+		<p>Photos: <a href="mailto:emailaddress">Name</a></p>
+		<p>Graphics: <a href="mailto:emailaddress">Name</a></p>
+		<p>Designer: <a href="mailto:emailaddress">Name</a></p>
+	</section>
+	<!-- end credits -->
+
+	<section class="more clearFix">
+		<h5>More from The Dallas Morning News</h5>
+		<a class="clearFix" href="#">
+			<img src="images/_defaultImage.jpg" alt="#" />
+			<h6>Story title goes here</h6>
+			<p>Description of the story goes in this spot here</p>
+		</a>
+		<a class="clearFix" href="#">
+			<img src="images/_defaultImage.jpg" alt="#" />
+			<h6>Story title goes here</h6>
+			<p>Description of the story goes in this spot here</p>
+		</a>
+		<a class="clearFix" href="#">
+			<img src="images/_defaultImage.jpg" alt="#" />
+			<h6>Story title goes here</h6>
+			<p>Description of the story goes in this spot here</p>
+		</a>
+	</section>
+	<!-- end more -->
+
+		<div class="shareComments">
+		<ul id="share-bar2" class="width-auto-hack"></ul>
+        <div id="comments"></div>
+	</div>
+	<!-- end shareComments -->
+
+</section>
+<!-- end contentWell -->
+
+</div>
+{%endblock%}
+
+
+
+
+{%block custom_foot%}
+	<script type="text/javascript"></script>
+{%endblock%}
+
+
+
+
+
+{%block custom_social_meta%}
+<script type="text/javascript">
+  var storyTitle = "{{tweetText}}", // headline in tweet card
+	storyURL = "{{url}}",
+	leadText = "{{shareText}}", //description in tweet card
+	storyIMG = "{{imgURL}}",
+	storyAuthor = "{{authors}}",
+	twitterTag = "{{sectionTwitter}}",
+	comments = true,
+	share = true;
+	OAS_sitepage = 'www.dallasnews.com/{{desk}}/{{section}}/';
+</script>
+{%endblock%}
