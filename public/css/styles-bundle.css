@@ -122,7 +122,6 @@ II. KASON TEMPLATE STYLES, HEADER AND FOOTER
   background-color: #b0bcc4;
   min-height: 97px;
   padding: 20px 10px;
-  max-height: 97px;
   position: relative;
   z-index: 100; }
 
@@ -316,21 +315,18 @@ VI. STORY HEAD, BYLINES AND INTRO
   margin-bottom: 1.8rem;
   text-transform: uppercase; }
 
-.bylineBlock {
-  text-align: center;
-  max-width: 650px;
-  margin: 0 auto; }
-
 .bylineBlock p {
   color: #212121;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 1.4rem;
   line-height: 1.8rem;
   font-style: italic;
-  margin: 0 0 .9rem 0;
-  text-align: center; }
+  margin: 0 0 .9rem 0; }
   .bylineBlock p a {
+    color: #FBD44B;
     display: inline-block; }
+    .bylineBlock p a:visited {
+      color: #FBD44B; }
 
 .bylineBlock p:last-of-type {
   margin-right: 0; }
@@ -858,7 +854,7 @@ XX. ADS
 .ad {
   border-bottom: 1px solid #c8c8c8;
   border-top: 1px solid #c8c8c8;
-  margin: 4.8rem 0;
+  margin: 0 0 4.8rem 0;
   padding: 2rem 0;
   position: relative;
   text-align: center;
@@ -877,12 +873,129 @@ XX. ADS
   font-weight: bold;
   margin-bottom: .5rem !important; }
 
+#splash {
+  width: 100%;
+  height: calc(100vh - 51px);
+  display: block;
+  z-index: 100;
+  background-image: url("../images/dixonlede-2400.jpg"), linear-gradient(to right, black, black);
+  background-size: cover, cover;
+  background-position: right top, center center;
+  background-repeat: no-repeat, no-repeat;
+  position: fixed;
+  top: 51px;
+  left: 0;
+  overflow-y: auto; }
+
+@keyframes splashFade {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes splashSlide {
+  from {
+    -webkit-transform: translate3d(0, 250px, 0);
+    -moz-transform: translate3d(0, 250px, 0);
+    -o-transform: translate3d(0, 250px, 0);
+    transform: translate3d(0, 250px, 0); }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes splashDelay1 {
+  0% {
+    opacity: 0; }
+  45% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.displayHead {
+  width: 90%;
+  text-align: left;
+  padding: 0 0 50px 50px;
+  max-width: 800px; }
+  .displayHead h1 {
+    width: 100%;
+    max-width: 765px;
+    font-family: Teko, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 18rem;
+    line-height: 14.5rem;
+    margin-bottom: 0;
+    margin-top: 4rem;
+    font-weight: bold;
+    color: #FBD44B;
+    display: inline-block;
+    -webkit-mask-image: url("../images/_testTexture2.png");
+    -o-mask-image: url("../images/_testTexture2.png");
+    -moz-mask-image: url("../images/_testTexture2.png");
+    mask-image: url("../images/_testTexture2.png");
+    -webkit-animation: splashFade 3s, splashSlide 3s;
+    -moz-animation: splashFade 3s, splashSlide 3s;
+    -o-animation: splashFade 3s, splashSlide 3s;
+    animation: splashFade 3s, splashSlide 3s; }
+  .displayHead h2 {
+    font-family: "Open Sans", Arial, sans-serif;
+    color: white;
+    font-size: 3rem;
+    line-height: 3.6rem;
+    margin-bottom: 2.4rem;
+    -webkit-animation: splashDelay1 6s;
+    -moz-animation: splashDelay1 6s;
+    -o-animation: splashDelay1 6s;
+    animation: splashDelay1 6s; }
+  .displayHead p {
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+    margin-bottom: 2.4rem;
+    color: white;
+    -webkit-animation: splashDelay1 6s;
+    -moz-animation: splashDelay1 6s;
+    -o-animation: splashDelay1 6s;
+    animation: splashDelay1 6s;
+    position: relative; }
+
+#readMore {
+  padding: 10px;
+  background-color: #FBD44B;
+  color: #2F3737;
+  position: relative;
+  top: 1.2rem;
+  -webkit-transtion: background-color 0.25s ease-out;
+  -moz-transition: background-color 0.25s ease-out;
+  -o-transition: background-color 0.25s ease-out;
+  transition: background-color 0.25s ease-out; }
+  #readMore:visited {
+    color: #2F3737; }
+  #readMore:hover {
+    background-color: #fac819;
+    text-decoration: none; }
+
 #map {
   width: 50%;
   height: 100vh;
   position: fixed;
   top: 0;
   right: 0; }
+
+.mapHead {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  margin-bottom: 0; }
+
+.mapboxgl-popup-content {
+  padding: 10px 30px 10px 10px !important; }
+
+.mapboxgl-popup-close-button {
+  font-size: 20px !important;
+  font-weight: bold; }
 
 #mapReset {
   position: absolute;
@@ -907,14 +1020,14 @@ XX. ADS
   #mapReset:focus {
     outline: 0; }
   #mapReset.moved {
-    top: 10px; }
+    top: 20px; }
 
 #mapExpander {
   display: none; }
 
 #wrapper {
   width: 50%;
-  padding: 20px 0px;
+  padding: 0px 0px 20px;
   float: left; }
 
 .mapboxgl-ctrl-top-right {
@@ -928,26 +1041,28 @@ XX. ADS
 
 .dixonSection {
   margin-bottom: 6rem; }
-  .dixonSection h3, .dixonSection h4, .dixonSection h5, .dixonSection h6 {
+  .dixonSection h3, .dixonSection h5, .dixonSection h6 {
     font-family: Teko, Arial, sans-serif; }
   .dixonSection h3 {
-    padding: 0 30px;
+    padding: 5px 30px;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 9.6rem;
-    line-height: 9.6rem;
+    font-size: 14rem;
+    line-height: 10.2rem;
     margin-bottom: 0rem;
+    margin-top: 1rem;
     -webkit-mask-image: url("../images/_testTexture2.png");
     -o-mask-image: url("../images/_testTexture2.png");
     -moz-mask-image: url("../images/_testTexture2.png");
     mask-image: url("../images/_testTexture2.png");
-    color: white; }
+    color: #2F3737; }
   .dixonSection h4 {
     padding: 0 30px;
     font-weight: 400;
-    color: white;
-    font-size: 3.3rem;
-    line-height: 3.6rem;
+    color: #2F3737;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 2rem;
+    line-height: 3rem;
     margin-bottom: 0; }
     .dixonSection h4:after {
       content: "";
@@ -955,20 +1070,22 @@ XX. ADS
       width: 100%;
       height: 5px;
       position: relative;
-      background-color: white;
+      background-color: #2F3737;
       top: 10px;
       -webkit-mask-image: url("../images/_testTexture2.png");
       -o-mask-image: url("../images/_testTexture2.png");
       -moz-mask-image: url("../images/_testTexture2.png");
       mask-image: url("../images/_testTexture2.png"); }
   .dixonSection h5 {
-    font-size: 3rem;
+    font-size: 3.6rem;
     line-height: 3.6rem;
     margin-bottom: 0;
-    color: #212121; }
+    color: #2F3737;
+    text-transform: uppercase;
+    font-weight: 700; }
   .dixonSection h6 {
     color: white;
-    background-color: #212121;
+    background-color: #2F3737;
     display: inline-block;
     padding: 3px 5px 0;
     text-transform: uppercase;
@@ -983,30 +1100,9 @@ XX. ADS
   .dixonSection img {
     width: 100%; }
 
-.addy {
-  margin-left: 30px;
-  font-family: Teko, Arial, sans-serif !important;
-  font-size: 2rem !important;
-  line-height: 2.4rem;
-  margin-bottom: 2.4rem !important;
-  display: inline-block;
-  color: white;
-  text-transform: uppercase; }
-  .addy:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 3px;
-    position: relative;
-    background-color: white;
-    -webkit-mask-image: url("../images/_testTexture2.png");
-    -o-mask-image: url("../images/_testTexture2.png");
-    -moz-mask-image: url("../images/_testTexture2.png");
-    mask-image: url("../images/_testTexture2.png"); }
-
 .dixonHead {
   padding: 0 0 4.8rem;
-  background-color: #660000;
+  background-color: #FBD44B;
   margin-bottom: 2.4rem; }
   .dixonHead img {
     margin-bottom: 2.4rem; }
@@ -1014,60 +1110,112 @@ XX. ADS
 .dixonContent {
   padding: 2.4rem 30px; }
 
-.dixonStories ul {
-  font-family: "Open Sans", Arial, sans-serif;
-  margin-bottom: 2.4rem; }
+@keyframes slidein {
+  from {
+    -webkit-transform: translate3d(0, -100px, 0);
+    -moz-transform: translate3d(0, -100px, 0);
+    -o-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0); }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
 
-.dixonStories li {
-  display: inline-block;
-  font-weight: bold;
-  font-size: 1.4rem;
-  line-height: 30px;
-  margin-bottom: 0;
-  color: #212121;
-  margin-right: 10px;
-  cursor: pointer;
-  width: 36px;
-  height: 36px;
-  text-align: center;
-  border: 3px solid #212121;
-  -webkit-transtion: all 0.25s ease-out;
-  -moz-transition: all 0.25s ease-out;
-  -o-transition: all 0.25s ease-out;
-  transition: all 0.25s ease-out;
+.dixonStories {
+  padding-top: 70px;
   position: relative; }
-  .dixonStories li:last-of-type {
-    margin-right: 0; }
-  .dixonStories li:hover, .dixonStories li.activeItem {
-    background-color: #212121;
-    color: white; }
-  .dixonStories li.activeItem:after {
-    content: "";
-    display: block;
-    width: 10px;
-    height: 10px;
+  .dixonStories.singleStory {
+    padding-top: 0; }
+  .dixonStories ul {
+    font-family: "Open Sans", Arial, sans-serif;
+    margin-bottom: 24px;
     position: absolute;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    transform: rotate(45deg);
-    bottom: -7px;
-    left: 50%;
-    margin-left: -5px;
-    background-color: #212121; }
+    padding-top: 10px;
+    top: 0; }
+    .dixonStories ul.stuck {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50%;
+      border-bottom: 1px solid #2F3737;
+      padding-left: 30px;
+      background-color: white;
+      min-height: 70px;
+      -webkit-animation: slidein .25s;
+      -moz-animation: slidein .25s;
+      -o-animation: slidein .25s;
+      animation: slidein .25s; }
+  .dixonStories li {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 30px;
+    margin-bottom: 0;
+    color: #2F3737;
+    margin-right: 10px;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    border: 3px solid #FBD44B;
+    -webkit-transtion: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    position: relative; }
+    .dixonStories li:last-of-type {
+      margin-right: 0; }
+    .dixonStories li:hover, .dixonStories li.activeItem {
+      background-color: #FBD44B;
+      color: #2F3737; }
+    .dixonStories li.activeItem:after {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      transform: rotate(45deg);
+      bottom: -8px;
+      left: 50%;
+      margin-left: -5px;
+      background-color: #FBD44B; }
 
 .dixonStory .imageGroup {
-  width: 40%;
+  width: 50%;
   float: right;
   margin: 0 0 3.6rem 3.6rem; }
+  .dixonStory .imageGroup .mug {
+    max-width: 75px;
+    float: left;
+    margin: .6rem 10px 0 0; }
   .dixonStory .imageGroup p {
     font-family: "Open Sans", Arial, sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.5rem;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
     margin-bottom: 1.2rem;
     color: #424242; }
 
+.next {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: bold;
+  color: #2F3737;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin-bottom: 0;
+  margin-top: 2.4rem;
+  padding-top: 2.4rem;
+  border-top: 1px dotted #2F3737;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer; }
+
 .mapper {
   display: none; }
+  .mapper i {
+    margin-right: 5px; }
 
 .noShow {
   display: none; }
@@ -1076,9 +1224,15 @@ XX. ADS
   overflow: hidden; }
 
 @media (max-width: 900px) {
-  #map {
+  #splash {
+    background-image: url("../images/dixonlede-1200.jpg"), linear-gradient(to right, black, black); }
+  .displayHead {
     width: 90%;
-    right: -14px;
+    padding: 0 0 50px 0;
+    margin: 0 auto; }
+  #map {
+    width: 100%;
+    right: -0;
     transform: translate3d(100%, 0, 0);
     -webkit-transtion: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
@@ -1096,23 +1250,163 @@ XX. ADS
     top: 70px;
     right: 60px;
     font-size: 24px !important;
-    line-height: 35px !important;
+    line-height: 29px !important;
     width: 35px;
     height: 35px;
-    background-color: #212121;
-    color: white;
+    background-color: #FBD44B;
+    color: #2F3737;
+    border: 3px solid #2F3737;
     text-align: center;
     border-radius: 50%;
     z-index: 50;
+    cursor: pointer;
     -webkit-transtion: all 0.25s ease-out;
     -moz-transition: all 0.25s ease-out;
     -o-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out; }
+    #mapExpander:hover {
+      background-color: #2F3737;
+      color: #FBD44B; }
     #mapExpander.moved {
       top: 20px; }
   .mapper {
-    display: inline-block; } }
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 35px;
+    font-size: 2rem !important;
+    font-family: Teko, Arial, sans-serif !important;
+    text-transform: uppercase;
+    background-color: #2F3737;
+    color: white;
+    padding: 6px 10px 3px;
+    position: relative;
+    z-index: 20; }
+    .mapper:hover {
+      color: #FBD44B; }
+  .dixonContent {
+    padding: 2.4rem 0;
+    width: 80%;
+    margin: 0 auto; }
+    .dixonContent:after {
+      content: "";
+      display: table;
+      clear: both; }
+  .dixonStories {
+    padding: 0; }
+    .dixonStories ul {
+      width: 40px;
+      float: left; }
+      .dixonStories ul.stuck {
+        left: 10%;
+        width: 40px;
+        border-bottom: none;
+        padding-left: 0; }
+      .dixonStories ul li {
+        margin-bottom: 10px; }
+        .dixonStories ul li.activeItem:after {
+          bottom: 50%;
+          margin-bottom: -5px;
+          left: auto;
+          right: -8px;
+          margin-left: 0; }
+  .dixonStory {
+    width: calc(100% - 80px);
+    float: right; }
+  .singleStory .dixonStory {
+    width: 100%;
+    float: none; } }
+
+@media (max-width: 750px) {
+  .displayHead h1 {
+    font-size: 12rem;
+    line-height: 9.6rem;
+    margin-bottom: 0; }
+  .displayHead h2 {
+    font-size: 2.2rem;
+    line-height: 3rem;
+    margin-bottom: 3.6rem; }
+  .dixonStory .imageGroup {
+    width: 100%;
+    float: none;
+    margin: 0 0 2.4rem 0; } }
 
 @media (max-width: 600px) {
-  #wrapper {
-    background-color: grey; } }
+  #splash {
+    background-image: url("../images/dixonlede-1200.jpg"), linear-gradient(to right, black, black); }
+  .dixonContent {
+    width: 90%; }
+    .dixonContent ul.stuck {
+      left: 5%; }
+  .dixonSection h3 {
+    font-size: 10rem;
+    line-height: 8.4rem;
+    margin-bottom: 0; }
+  .dixonSection h4 {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    margin-bottom: 0; } }
+
+@media (max-width: 450px) {
+  .dixonStories {
+    padding-top: 70px; }
+    .dixonStories ul {
+      width: 100%;
+      float: none; }
+      .dixonStories ul.stuck {
+        left: 0;
+        width: 100%;
+        padding-left: 5%;
+        border-bottom: 1px solid #2F3737; }
+      .dixonStories ul li {
+        margin-bottom: 10px; }
+        .dixonStories ul li.activeItem:after {
+          right: auto;
+          margin-bottom: 0;
+          bottom: -8px;
+          left: 50%;
+          margin-left: -5px;
+          background-color: #FBD44B; }
+  .dixonStory {
+    width: 100%;
+    float: none; }
+  #mapExpander {
+    display: none; }
+    #mapExpander.fa-times {
+      display: inline-block; } }
+
+.credits, .more {
+  width: 90%; }
+
+.shareComments li.facebookShare a {
+  background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg"); }
+
+.shareComments li.twitterShare a {
+  background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg"); }
+
+.shareComments li.emailShare a {
+  background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg"); }
+
+.shareComments li.printShare a {
+  background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg"); }
+
+.shareComments li.facebookShare a:hover {
+  background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg"); }
+
+.shareComments li.twitterShare a:hover {
+  background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg"); }
+
+.shareComments li.emailShare a:hover {
+  background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg"); }
+
+.shareComments li.printShare a:hover {
+  background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg"); }
+
+.shareCommentsTop {
+  margin: 3.6rem 0 1.2rem;
+  position: relative;
+  z-index: 30; }
+  .shareCommentsTop ul {
+    text-align: left; }
+  @media (max-width: 600px) {
+    .shareCommentsTop {
+      padding: 0 0; } }

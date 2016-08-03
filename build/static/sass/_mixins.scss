@@ -43,3 +43,17 @@
 	-o-transition: $property $time $ease;
 	transition: $property $time $ease;
 }
+
+@mixin animation($animationName, $time) {
+	-webkit-animation: $animationName $time;
+	-moz-animation: $animationName $time;
+	-o-animation: $animationName $time;
+	animation: $animationName $time;
+}
+
+@mixin delay($time) {
+	-webkit-animation-delay: $time;
+	-moz-animation-delay: $time;
+	-o-animation-delay: $time;
+	animation-delay: $time;
+}

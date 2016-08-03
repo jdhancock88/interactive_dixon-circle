@@ -48,12 +48,9 @@
 
 	<script type="text/javascript">
 		WebFont.load({
-			custom: {
-  				families: ["Gotham A", "Gotham B"],
-  			},
 			google: { //change custom to google: if using google cdn font
-		    families: ['Open+Sans', 'Merriweather', 'Teko']
-		  }
+		    	families: ['Open+Sans', 'Merriweather', 'Teko']
+		  	}
 		});
 	</script>
 
@@ -76,6 +73,7 @@
 
 
 
+
 	<!--
 	================================
 	START AD CODE
@@ -93,17 +91,14 @@ var adSlot0 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFP
 adSlot0.setTargeting("position", "x01");
 adSlot0.addService(googletag.pubads());
 
-/*
 var adSlot1 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFPSlotSizes, "dfpAdPositionMiddle");
 adSlot1.setTargeting("position", "x02");
 adSlot1.addService(googletag.pubads());
-*/
 
-/*
 var adSlot2 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFPSlotSizes, "dfpAdPositionBottom");
 adSlot2.setTargeting("position", "x03");
 adSlot2.addService(googletag.pubads());
-*/
+
 
 
 </script>
@@ -120,7 +115,7 @@ googletag.enableServices();
 	-->
 
 </head>
-<body>
+<body class="noScroll">
 
 	<!-- Google Tag Manager DMN -->
 	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-T45ZQL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -135,38 +130,288 @@ googletag.enableServices();
 	<article id="content" class="clearFix">
 
 	
-<section id="map">
-<button id="mapReset">Reset Map</button>
+
+<section id="splash">
+	<div class="displayHead">
+	 	<div class="shareComments shareCommentsTop">
+			<ul id="share-bar1" class="width-auto-hack"></ul>
+		</div>
+		<h1>Life in <br/>Dixon Circle</h1>
+		<h2>Placeholder text: Dixon is a broken neighborhood where residents tell their own stories. The stories shape their attitudes, and that may spell trouble down the road.</h2>
+		<div class="bylineBlock">
+			<p>By <a target="blank" href="mailto:aselk@dallasnews.com">Avi Selk</a> and <a href="mailto:jchiquillo@dallasnews.com">Julieta Chiquillo</a> | Staff Writers | Published Aug. 8, 2016</p>
+			</div>
+		<p>“I don’t think anyone saw this coming,” a news anchor said on July 7, 2016, as an enraged black man gunned down police in downtown Dallas. In the day’s following, the city’s police force was praised by President Barrack Obama on down — hailed as a force that reaches out it its community.</p>
+		<p>And a few who offered praise remembered Dixon Circle, and what happened there in the summer of 2012. Back then, a Dallas police officer would reliable kill someone every few weeks, until a cop shot an unarmed black man in one of the city’s poorest neighborhoods, and nearly sparked a riot.</p>
+		<p>When the uprising was quelled, a disturbed police chief promised change: a gentler force, an end to a drug market that has blighted the neighborhood. A real effort to mend broken trust. </p>
+		<p>Four years later, no one in Dixon Circle has forgotten that summer or what followed. But their memories don’t match the official version.</p>
+		<p><a href="" id="readMore">Read more about Dixon Circle</a></p>
+	</div>
 </section>
-<!-- end contentHeader -->
+
+<script>
+	$("#readMore").click(function(e) {
+		e.preventDefault();
+		$("#splash").fadeOut(500);
+		$("body").removeClass("noScroll");
+	});
+</script>
+
+<section id="map">
+	<button id="mapReset">Reset Map</button>
+</section>
+
+
+
 
 <div id="wrapper">
 
 <section class="contentWell clearFix">
 
-	<header id="storyHead" >
+	<!-- <header id="storyHead" >
 		<h3>Label, if needed</h3>
 		<h1>Main Headline</h1>
 		<h2>Deck head goes in this spot here</h2>
-	</header>
+	</header> -->
 		<!-- end storyHead -->
 
-	<div class="bylineBlock">
-		<p>By <a target="blank" href="mailto:emailaddresshere">Writer Name</a> <!-- <a class="authorTwitter" href="twitterurlhere" target="_blank">Twitter</a> --> | Staff Writer</p>
-		<p>Published Month Date, Year</p>
-		</div>
+	<!-- <div class="bylineBlock">
+		<p>By <a target="blank" href="mailto:emailaddresshere">Writer Name</a>  | Staff Writer</p> -->
+		<!-- <p>Published Month Date, Year</p>
+		</div> -->
 	<!-- end bylineBlock -->
 
-		<div class="shareComments shareCommentsTop">
+	<!-- <div class="shareComments shareCommentsTop">
 		<ul id="share-bar1" class="width-auto-hack"></ul>
-	</div>
+	</div> -->
 	<!-- end shareComments -->
 
 
 
-	<p class="intro"><span class="dropcap">A</span>n opening paragraph goes here. orem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum tortor a eleifend sagittis. Quisque laoreet elit vitae turpis aliquet tincidunt. Nulla molestie vitae purus eget dignissim. Quisque blandit nibh lorem, non mollis velit rutrum ac. Pellentesque pharetra mattis luctus.</p>
+	<!-- <p class="intro"><span class="dropcap">A</span>n opening paragraph goes here. orem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum tortor a eleifend sagittis. Quisque laoreet elit vitae turpis aliquet tincidunt. Nulla molestie vitae purus eget dignissim. Quisque blandit nibh lorem, non mollis velit rutrum ac. Pellentesque pharetra mattis luctus.</p> -->
 
-  </section>
+
+	<i id="mapExpander" class="fa fa-map-marker" aria-hidden="true"></i>
+
+
+
+	<div id="dixon1" class="dixonSection dixonMap">
+
+    <div class="dixonHead">
+
+        <img src="images/_dixonIntro.jpg" alt="default image"  />
+        <p class="mapper"><i class="fa fa-map-marker"></i> View map</p>
+        <h3>Dixon Circle</h3>
+        <h4>Once christened Sunny Acres and now one of Dallas’ roughest and poorest neighborhoods, Dixon Circle has been plagued by drugs, violence and tensions with police since at least the 1980s. The neighborhood spans the length of Dixon Avenue – about half a mile of drab apartments, boarded-up windows and tired but tidy homes. Residents are boxed in by a creek to the east and train tracks to the west. Even children eye visitors with suspicion.</h4>
+
+    </div>
+
+    <div class="dixonContent">
+
+        <div class="dixonStories clearFix">
+
+            <ul>
+                <li class="activeItem">1</li>
+                <li>2</li>
+            </ul>
+
+            <div class="dixonStory clearFix">
+                <h5>The downfall of Sunny Acres</h5>
+                <h6>as told by two women at the park</h6>
+                <div class="imageGroup">
+                    <img src="images/_downfall1.jpg" alt="alt text"  />
+                    <p>The congregation of the Dixon Circle Missionary Baptist Church in 1996. (File/Staff)</p>
+                </div>
+                <p>At the park, two old women smoke cigarettes under a tree while kids scream and laugh on the sprayground. </p>
+                <p>The women raised families here. Their children moved out, but they can’t imagine living anywhere else.</p>
+                <p>It’s not like it used to be. Dixon has paved streets now, even its own recreation center. But drug dealers rooted outside the corner store have a stranglehold on the neighborhood, and the women worry. They agreed to talk if their names were kept private.</p>
+                <p><strong>Woman 1:</strong> This used to be one of the nicest neighborhoods in Dallas, until everybody started calling it Dixon Circle, which it isn’t Dixon Circle.</p>
+                <p><strong>What do you call it?</strong></p>
+                <p><strong>Woman 1:</strong> When I first moved here, it was called Sunny Acres Addition.   Dixon Circle proper is a cul-de-sac that runs through the ragged apartment complex at the northern end of Dixon Avenue. Advertised in the 1960s as modern units for black families too prosperous for public housing, the apartments were supposed to be a springboard to the middle class.</p>
+
+                <div class="imageGroup">
+                    <img src="images/_downfall2.jpg" alt="alt text"  />
+                    <p>A Dallas police narcotics officer walks past suspects laying on the ground after a drug sweep at the Prince Hall Chambre Apartments in South Dallas in 1993. (File/Staff)</p>
+                </div>
+                <p>But over the years, those rentals and two other complexes down the street morphed into fortresses for gangs and targets for police raids.</p>
+                <p>Then came the spring of 1992.</p>
+                <p>Young people on Dixon Avenue threw rocks and bottles at passing cars to protest the acquittal of four white Los Angeles police officers in the beating of a black taxi driver. An angry crowd taunted Dallas police: "Did you come to shoot some of the brothers?”</p>
+                <p>The women know more trouble is brewing at the corner store. They see shady men lure the neighborhood teens away from high school, away from college.</p>
+                <p><strong>Woman 1:</strong> They’re not bad kids. None of them.<p>
+                <p><strong>Woman 2:</strong> Nuh-uh.</p>
+                <p><strong>Woman 1:</strong> They’re not bad kids. If you ask me, the adults that call themselves, that mentor them and all of that, they’re the bad influence.</p>
+                <p>During the school year, a bus drops off children near the rec center, roughly an eight-minute walk to the apartments on Dixon Circle. One of the women says she watches the younger kids fly past the corner store. They run all the way home.</p>
+
+                <a class="next"><i class="fa fa-chevron-circle-right"></i> Next: Rev. Earnest Freeney describes a community barely hanging on.</a>
+            </div>
+
+            <div class="dixonStory noShow clearFix">
+                <h5>The best part</h5>
+                <h6>as told by the reverend and his brother</h6>
+                <div class="imageGroup">
+                    <img src="images/_revFreeney.jpg" alt="Rev. Earnest Freeney"  />
+                    <p>Rev. Earnest Freeney has been pastor at Dixon Circle Missionary Baptist Church for 33 years. (Ting Shen/Staff Photographer)</p>
+                </div>
+                <p><em>The reverend describes a community barely hanging on.</em></p>
+                <p>The little white church on Dixon Avenue bears more than its share of the neighborhood’s hardships.</p>
+                <p>Pieces of the roof were falling off until the Rev. Earnest Freeney and his flock scraped enough money to fix it. Thieves used to break in so often that the pastor stopped locking the doors because replacing the locks was too expensive. </p>
+                <p>The burglars eased off on Dixon Circle Missionary Baptist Church. It’s where you go if you have a problem.</p>
+                <p>“The homeless people here, we don’t turn them away. The Crips, the Bloods, the 357s, you name them. Everybody in Dixon respects this man,” says the reverend’s brother, Paul Freeney.</p>
+                <p>The Freeney brothers don’t live in Dixon, but its troubles have long been their own. The wall behind the reverend’s desk is a tapestry of certificates of appreciation for his work in South Dallas.</p>
+                <p>Sometimes they thank an “Ernest” or a “Freeny.” People can’t get his name right.</p>
+                <p>Some of them don’t get Dixon, either. They see only drugs; they see only blight. The Freeneys see a community where people take turns sweeping the sidewalks because they care.</p>
+                <p><strong>Paul:</strong> This street is cleaned up every day. From one end to the other.</p>
+                <p><strong>Earnest:</strong> Only street that ever been swept in the city of Dallas every day.</p>
+                <p>But Dixon hasn’t been able to shed the decades of problems that gave it a bad reputation. And when your neighborhood gets a bad name, it’s hard to turn that around, the reverend says.</p>
+                <p>He leans forward in his chair and rests a swollen hand on his forehead. His body is betraying him, as does his memory sometimes.</p>
+                <p>“It’s not easy to make a community better,” the reverend says.</p>
+                <p>A bloated Bible sits on his desk, the foam bursting from the spine of its leather cover. He invites a visitor to take look.</p>
+                <p>"Don't worry about the tore up part,” he says. “That's the best part. It sure is." </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+    <div id="dixon2" class="dixonSection dixonMap">
+    <div class="dixonHead">
+        <img src="images/_grocery.jpg" alt="Dixon Grocery"  />
+
+        <p class="mapper">View map</p>
+        <h3>The Corner</h3>
+        <h4>Dixon Grocery is either a social hangout, an open-air drug markert or the downfall of the neighborhood — depending on who you ask</h4>
+
+    </div>
+    <div class="dixonContent">
+        <div class="dixonStories clearFix">
+
+            <ul>
+                <li class="activeItem">1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+
+            <div class="dixonStory clearFix">
+                <h5>How you do in the hood</h5>
+                <h6>as told by Freddie Smith</h6>
+                <div class="imageGroup">
+                    <img src="images/_corner1.jpg" alt="alt text"  />
+                    <p>Graffiti on a boarded up house next to the Dixon Circle Missionary Baptist Church near where the fatal police-involved shooting of James Harper nearly provoked more violence in a South Dallas neighborhood in 2012. (File photo)</p>
+                </div>
+                <p>"Where we got to go?” asks Freddie Smith, whacking weeds in front of a church down the street from the store.</p>
+                <p>He waves an arm along Dixon Avenue: block after block of gated apartments and treeless fields, bisected by a recreation center. “From this end to that end is apartments. We can't go stand in the Larry Johnson center. They got a law there saying you can't go in the center because it's a summertime camp. </p>
+                <p>He points to the Eagle’s Nest behind him: “And you can't stand there because it's a church."</p>
+                <p>And thus, parking lot of an ancient corner store is the neighborhood’s social center. It’s where Dixon gathers for beers, dice and conversation. And yeah, Smith admits, they sell drugs there too.</p>
+                <p>"All the young kids doing now is trying to keep a dollar in their pockets," he says. “All of us know that we doing wrong. We got to pay the price for doing wrong. But it ain’t for you to come over harassing us.</p>
+                <p>“The other day this young guy, the police made him stand in the sun about an hour,” he says. His voice raises pitch and he recreates a scene on the sidewalk. “Man! What you throwing that man down for! That man ain't did--now why you flipping that man?--that man ain't did nothing but standing right there. That's all the man doing.”</p>
+                <p> “It's how you do the hood,” Smith concludes. “That's what's making us angry … One of these days these young guys that ain't in a gang, they just out here, they gonna get shot because the police coming over here harassing us for no reason.”</p>
+            </div>
+
+            <div class="dixonStory noShow clearFix">
+                <h5>A bat in her purse</h5>
+                <h6>as told by two women in the park</h6>
+                <p>Two old friends sit in the park smoking cigarettes and casting hard eyes towards the store up the road. The women have lived in Dixon Circle nearly all their lives, and neither want their names printed. One carries a baseball bat in her purse. </p>
+                <p><strong>Woman 1:</strong> Half the people who hang at that store right now don’t live over here. You don’t if they’re going to knock you on your head, snatch your purse. </p>
+                <p><strong>Woman 2:</strong> They come and destroy our neighborhood. That’s what they do every day, seven days a week.</p>
+                <p><strong>Woman 1:</strong> I won’t even stop at the store. I take my bat that way. I’m not going to say I’ll use the bat, but they don’t know I won’t. And see, all those that know me, first thing they want to know is where is my bat!</p>
+                <p><strong>Woman 2:</strong> They had two shootings in less than a month at the store. One boy got shot six times, and the other guy got his intestines shot out.</p>
+            </div>
+
+            <div class="dixonStory noShow clearFix">
+                <h5>Damn, damn, damn, damn, damn</h5>
+                <h6>as told by the shopkeeper</h6>
+                <p>A stench of pot wafts into Dixon Grocery each time the door swings open, which it does constantly, whenever the men who loiter day and night in the parking lot need a beer or a cigar.</p>
+                <p>“I'm not going to lie to you. The money’s good,” says William Morel from behind the counter. The money's good. But it's a little rough.”</p>
+                <p>Morel moved to Dallas from the Bronx to help his brother take over the store. He plans to return to. He taps a display stand lined with trespass warnings.</p>
+                <p>"Selling drugs, all day. All kinds of drugs,” Morel says. “I have to call the police.”</p>
+                <p>The police come when called, but rarely linger. And the loiterers return as soon as they roll out.</p>
+                <p>Pot. Crack. Formaldehyde. Dixon is one of the poorest parts of Dallas—its median income about $20,000 a year. And scarcity breeds violence. Morel said he had to punch out a troublemaker himself last month, after police failed to rouse the man.</p>
+                <p>Over two weeks in April, two men were shot in the parking lot. Morel’s clerks took cell video for the police—as has become habit. </p>
+                <p>Morel laid his phone down on the counter and replayed the latter shooting, which was prompted by a fistfight over a small debt.</p>
+                <p>On the screen, a man walks a languid circle around the parking lot, shooting at another man’s leg, again and again. An onlooker says “damn” each time the gun goes off. Only after Mike Mike collapses does anyone scream.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+	<div id="dixon3" class="dixonSection dixonMap">
+
+    <div class="dixonHead">
+
+        <img src="images/_killingIntro.jpg" alt="default image"  />
+        <p class="mapper">View map</p>
+        <h3>The killing</h3>
+        <h4>On July 24, 2012, a bust went bad. Police raided a house down the street from the corner store: a stash house where the dealers stored their resupply. A man named James Harper fled from the house, across a block of back yards and fences, and jumped the fence into a horse pen.</h4>
+
+    </div>
+
+    <div class="dixonContent">
+
+        <div class="dixonStories clearFix">
+            <ul>
+                <li class="activeItem">1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+
+            <div class="dixonStory clearFix">
+                <div class="imageGroup">
+                    <img src="images/_jumpFence.jpg" alt="alt text"  />
+                    <img class="mug" src="images/_harperMug.jpg" alt="alt text"  />
+                    <p>Michael Baker points to the precise location in a horse corral on Mural Lane where he says Dallas police shot suspect James Harper (left). Baker said he heard two shots and saw Harper lying face down in the corral. (File photo)  </p>
+                </div>
+                <h5>The last jump</h5>
+                <h6>as told by Freddy Smith</h6>
+                <p>Freddy Smith followed the sound of the gunshot to shambling collection of shacks and barns at the northern edge of Dixon. There, he and other witnesses saw a local drug dealer known as G-Code—James Harper, 29—laying face down in a pile of horse manure.</p>
+                <p>Harper lay a few inches from a fence that — had he cleared it — would had led him to the open fields, and thence to the forested creek bed that borders Dixon Circle.</p>
+                <p>“If he had jumped that fence, he was gone,” Smith said. “The police knew this. So he did something to make this man fall like this.”</p>
+                <p>Smith couldn’t hear what the officers were saying. But what I saw wasn’t right,” he said.</p>
+                <p>“You're laughing, you're joking you're shaking your hand like ‘I got him, I got him, I got him.’ Like y'all had killed a deer or something.”</p>
+                <p>“That's what made me go into bad mode.” </p>
+                <p>As word of the killing spread down Dixon Avenue, people stepped out of their houses, resolved to see come out and confront the police for the first time in recent memory.</p>
+                <p>“They didn't know how to stop a riot,” Smith said. </p>
+            </div>
+
+            <div class="dixonStory noShow clearFix">
+                <div class="imageGroup">
+                    <img src="images/_harper.jpg" alt="alt text"  />
+                    <p>James Harper and his daughter, Kennedy. (File photo)</p>
+                </div>
+                <h5>Wrong</h5>
+                <h6>as told by the reverend</h6>
+                <p>Rev. Freeney: They knew he was a runner. They didn't have to kill him. He could have ran about 50 feet, as many policemen as was down here. Could have tazed him.</p>
+                <p>Paul: Set up a parameter on the other end. Could have. We don't know.</p>
+                <p>Rev. Freeney: He was wrong about selling the drugs too. He was wrong about selling drugs in the community. But they didn't didn't have to kill him though. </p>
+                <p>You've got many drug dealers that they haven't killed, and not having a gun, and fighting an officer. They haven't killed a lot of them so why kill Harper?</p>
+            </div>
+
+            <div class="dixonStory noShow clearFix">
+                <div class="imageGroup">
+                    <img src="images/_drugHouse.jpg" alt="alt text"  />
+                    <p>A newly constructed memorial is erected in front of 5316 Bourquin Street, an alleged drug house, where, according to police, yesterday's incident and chase of suspect James Harper began. According to police, various drugs and weapons were found in the house. (Jeff Lautenberger/The Dallas Morning News)</p>
+                </div>
+                <h5>Justified</h5>
+                <h6>as told by the police</h6>
+                <p>Half a block from the corner store, undercover police had identified a house on Bourquin as a stash house—a resupply base for crack, pot and ecstacy. Undercover police have been making covert purchases there for months.</p>
+                <p>At 5 p.m., someone called 911. "Five to six Hispanics with some guns just walked this black dude in the house with his hands tied up," the caller said, before hanging up.</p>
+                <p>Suddenly, it seemed, the stash house was the scene of a kidnapping. They wouldn't realize until too late that the call was a hoax—possibly the work of a rival drug gang trying to throw heat on the house.</p>
+                <p>Three officers went to the house. The first to enter saw four men and a gun. In a chaotic scene, the men fled out windows and one of them grabbed the gun.</p>
+                <p>It was hardly the first chase through Dixon. An Officer named Brian Rowden began chasing James Harper, a 31-year-old man with record of chases and confrontations with security, known throughout Dixon—including by his mother—to deal drugs.</p>
+                <p>Rowden chased Harper down an alley, over a fence, then another fence, at times catching up to Harper and trading blows.</p>
+                <p> By the time Rowden chased Harper of the last fence—into a shanted horse pen that skirts Dixon's northern extremity—he had lost his handcuffs and was growing exhausted. He clung to Harper before the last fence.</p>
+                <p>The officer said he heard Harper taunt him: "You're going to have to kill me” before he shot Harper in the chest and stomach, three times in total, becoming the eighth Dallas police officer to kill someone that year.</p>
+                <p>An autopsy would reveal that he had not been shot in the back—a rumor that was already spreading along Dixon Avenue that evening.</p>
+                <p>Likewise, a grand jury would eventually decide that Rowden was justified in killing Harper. But that day, as an angry crowd gathered at the police line around Harper's body, the official version did not matter.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+	</section>
 
     <div id="dfpAdPositionTop" class="ad"> <!-- to remove bottom and top rules, add class "noRule" -->
         <p class="adLabel">Advertisement</p>
@@ -177,140 +422,448 @@ googletag.enableServices();
 <section class="contentWell">
 
 
-	<i id="mapExpander" class="fa fa-map-marker" aria-hidden="true"></i>
+	<div id="dixon4" class="dixonSection dixonMap">
 
-    <div id="dixon1" class="dixonSection">
-		<div class="dixonHead">
-			<img src="images/_grocery.jpg" alt="Dixon Grocery"  />
+    <div class="dixonHead">
 
-			<p class="addy">3752 Dixon Avenue, Dallas</p>
-			<p class="mapper">View map</p>
-	        <h3>The Corner</h3>
-			<h4>Dixon Grocery is either a social hangout, an open-air drug markert or the downfall of the neighborhood — depending on who you ask</h4>
-
-		</div>
-		<div class="dixonContent">
-			<div class="dixonStories clearFix">
-				<ul>
-					<li class="activeItem">1</li>
-					<li>2</li>
-					<li>3</li>
-				</ul>
-
-				<div class="dixonStory clearFix">
-					<div class="imageGroup">
-						<img src="images/_freddy.jpg" alt="Freddy Smith"  />
-						<p>Freddy Smith</p>
-					</div>
-					<h5>How you do in the hood</h5>
-					<h6>as told by Freddie Smith</h6>
-					<p>Freddy Smith used to hang out on a corner just like it when he was younger.</p>
-					<p>"Where we got to go? From this end to that end is apartments,” he says. "They got a law there saying you can't go in the [recreation] center because it's a summertime camp. And you can't stand there because it's a church."</p>
-					<p> The corner is the neighborhood gathering spot, where residents go to shoot dice or shoot the breeze. And yeah, Smith agreed, some go there to sell drugs, which have been part of the local economy as long as he’s lived in Dixon.</p>
-					<p>"All the young kids doing now is trying to keep a dollar in their pockets," Smith said. "Nobody coming to nobody putting a pistol upside their head, say 'you should have bought my stuff.'" </p>
-				</div>
-
-				<div class="dixonStory noShow clearFix">
-
-					<p>A block down the street from the corner store, two women sit in the park smoking cigarettes. One carries a baseball bat in her purse. </p>
-					<p>They have lived in Dixon nearly all their lives, and will only talk about the men at the store if their names aren’t used.</p>
-					<p>Woman 1: That store has been there forever. And half the people who hang at that store right now don’t live over here.</p>
-					<p>Woman 2: They come and destroy our neighborhood. That’s what they do every day, seven days a week.</p>
-					<p>Woman 1: I won’t even stop at the store ... I take my bat that way. I’m not going to say I’ll use the bat, but they don’t know I won’t. And see, all those that know me, first thing they want to know is where is my bat!</p>
-					<p>Woman 2: They had two shootings in less than a month at the store. One boy got shot six times, and the other guy got his intestines shot out.</p>
-				</div>
-
-				<div class="dixonStory noShow clearFix">
-					<p>A faint stench of pot wafts into Dixon Grocery each time the door swings open. And the door swings constantly as the men who loited outside day and night come in for beer, cigar and the occasional violent crime.</p>
-					<p>Behind the counter, William Morel points to a display stand lined with trespass warnings.</p>
-					<p>"I have to call the police," he says. "Look at this. How many do you see right there? One two three four five six seven eight."</p>
-					<p>But the men come back as soon as the police roll out.</p>
-					<p>"If you come 5, 6, 8 o'clock you're going to see the same people," Morel says. "Selling drugs, all day. All kinds of drugs."</p>
-					<p>In April, a fistfight over a small debt ended after one man fetched a pistol from his SUV and shot the other in the leg. It was the second shooting in the store parking lot that month.</p>
-				</div>
-
-			</div>
-		</div>
+        <img src="images/_peopleIntro.jpg" alt="default image"  />
+        <p class="mapper">View map</p>
+        <h3>The people</h3>
+        <h4>Word spread along Dixon Avenue that Harper lay rotting in the sun, that he’d been shot in the back, and that police were laughing at his body. Hundreds were in the street within minutes.</h4>
 
     </div>
 
-    <div id="dixon2" class="dixonSection">
-		<img src="images/_grocery.jpg" alt="Dixon Grocery"  />
+    <div class="dixonContent">
 
-		<p class="addy">3752 Dixon Avenue, Dallas</p>
-        <h3>The Corner</h3>
-		<h4>Dixon Grocery is either a social hangout, an open-air drug markert or the downfall of the neighborhood — depending on who you ask</h4>
+        <div class="dixonStories clearFix">
+            <ul>
+                <li class="activeItem">1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
 
-		<div class="dixonStories clearFix">
-			<ul>
-				<li class="activeItem">1</li>
-				<li>2</li>
-				<li>3</li>
-			</ul>
+            <div class="dixonStory clearFix">
+                <div class="imageGroup">
+                    <img src="images/_badMode.jpg" alt="alt text"  />
+                    <p>A pair of Dallas police gang unit officers patrol the streets in 2012 where hundreds of people converged outside DixonÕs Grocery a block or two from where James Harper lay face down in a field.  (Tom Fox/Staff Photographer)</p>
+                </div>
+                <h5>Bad mode</h5>
+                <h6>as told by Freddie Smith</h6>
+                <p>Freddy walked away from the horse pen and stood in his yard, thinking about what he'd seen. He might have ended his day there, he said, had a police officer not threatened to arrest him if he didn’t go inside.</p>
+                <p>"Why I got to go in my house because y'all have done something?" Freddie said.</p>
+                <p>He got mad. Up and down Dixon Circle, his neighbors were getting mad too.</p>
+                <p>"Everybody started calling people," Freddie said. "Everybody came from everywhere, because they knew that the police done shot somebody."</p>
+                <p>Harper's mother came up the avenue, wailing, collapsing, held aloft by an ever-swelling crowd around here. Harper’s sister staggered up to the police line, speaking in sobs: "Why they do this to my brother? Why they kill him?"</p>
+                <p>A crowd of onlookers watched from the apartment gates, shooting video on their phones through coils of barbed wire. Then they came out of the gates.</p>
+                <p>Word of the gathering spread on the news, people were driving from across southern Dallas to witness the events at Dixon Circle. By the time a column of police in riot gear marched down the avenue, hundreds teemed.</p>
+                <p>A fistfight and a growl of shouts from within the crowd. An officer shot a burst of pellets into the street, and pistols flashed within the throng. Self-professed Black Panthers railed before the TV cameras, and Freddie Smith was among them.</p>
+                <p>"I see a lot of white folks and no black folks!" he screamed into the SWAT line, as sun began to dim over Dixon Avenue. </p>
+            </div>
 
-			<div class="dixonStory">
-				<p>Freddy Smith used to hang out on a corner just like it when he was younger.</p>
-				<p>"Where we got to go? From this end to that end is apartments,” he says. "They got a law there saying you can't go in the [recreation] center because it's a summertime camp. And you can't stand there because it's a church."</p>
-				<p> The corner is the neighborhood gathering spot, where residents go to shoot dice or shoot the breeze. And yeah, Smith agreed, some go there to sell drugs, which have been part of the local economy as long as he’s lived in Dixon.</p>
-				<p>"All the young kids doing now is trying to keep a dollar in their pockets," Smith said. "Nobody coming to nobody putting a pistol upside their head, say 'you should have bought my stuff.'" </p>
-			</div>
+            <div class="dixonStory noShow clearFix">
+                <div class="imageGroup">
+                    <img src="images/_zoneCop.jpg" alt="alt text"  />
+                    <p>Sweat pours from Dallas Police tactical officer W. McKeever II who alongside other officers formed a police line in the heat of the day as hundreds of people converged a block or two from where James Harper lay face down in a field in 2012. (Tom Fox/Staff Photographer)</p>
+                </div>
+                <h5>The zone</h5>
+                <h6>as told by Rev. Freeney</h6>
+                <p><em>As a crowd swelled across the street from their church, Rev. Earnest Freeney and his brother Paul went into the street to plead for peace.</em></p>
+                <p>Paul: When we were in the zone, what I call the zone: You have cops on one side with automatic weapons. You name it, they have it. And then you got you got, I'm gonna just say the people. OK?</p>
+                <p>Rev. Freeney: I just thank God that I wasn't cut in half. Could have been.</p>
+                <p>Paul: You know, we had to tell a couple officers to stand down, because if he attempted to arrest a person he would create a riot. Let him go home, even though he has a gun.</p>
+                <p>Rev. Freeney: They had guns, and were ready to go to war.</p>
+            </div>
 
-			<div class="dixonStory noShow">
-				<p>A block down the street from the corner store, two women sit in the park smoking cigarettes. One carries a baseball bat in her purse. </p>
-				<p>They have lived in Dixon nearly all their lives, and will only talk about the men at the store if their names aren’t used.</p>
-				<p>Woman 1: That store has been there forever. And half the people who hang at that store right now don’t live over here.</p>
-				<p>Woman 2: They come and destroy our neighborhood. That’s what they do every day, seven days a week.</p>
-				<p>Woman 1: I won’t even stop at the store ... I take my bat that way. I’m not going to say I’ll use the bat, but they don’t know I won’t. And see, all those that know me, first thing they want to know is where is my bat!</p>
-				<p>Woman 2: They had two shootings in less than a month at the store. One boy got shot six times, and the other guy got his intestines shot out.</p>
-			</div>
+            <div class="dixonStory noShow clearFix">
+                <div class="imageGroup">
+                    <img src="images/_caraway.jpg" alt="alt text"  />
+                    <p>Dallas City Councilman Dwaine Caraway, center with sunglasses, comforts the family, including brother Tony Harper, right, of shooting victim James Harper in 2012. (Tom Fox/Staff Photographer) </p>
+                </div>
+                <h5>About to jump off</h5>
+                <h6>as told by Dwaine Caraway</h6>
+                <p>Dwaine Caraway, who served Dixon Circle on the City Council and knew well its reputation, walked into the crowd that evening with no idea what to expect.</p>
+                <p>“This was breaking news on every radio and every television station,” he said. "Folks that was mad, they start coming in from everywhere: Pleasant Grove, Oak Cliff, Duncanville, DeSoto.</p>
+                <p>Everybody began to converge in on Dixon Circle.”</p>
+                <p>He pressed through the throng up the avenue, towards the body. At the front line of the police barricade, a riot officer looked ready to crack. The assistant police chief pulled him off the line to cool down.</p>
+                <p>“f that officer had stayed on the front line, there’s no telling what would have happened,” Caraway said. He praised the police’s restraint that evening. The real danger to him was the crowd—likely armed, and feeding off the anguish of Harper’s family.</p>
+                <p> "They were hollering and screaming, and people were reacting to their reactions," Caraway said. "Something was going to jump off."</p>
+                <p>So he gathered up Harper’s relatives and escorted them past the police tape, huddling with them beneath a tree where the crowd’s shouts weren’t quite so loud.</p>
+                <p>“I know that your son is dead," Caraway remembered saying. "I know that this is happening, but this is how we gotta--” </p>
+                <p>“But they did it. They were wrong.”</p>
+                <p>“Look, you lost your loved one, I understand that--”</p>
+                <p>“I want to go back and see him! They won’t let me go back and see him! I want to see my son!”</p>
+                <p>Caraway left the family under the tree to plead with police to let them see Harper. "And next thing you know, I’m told that the body had been removed. So now I had to go back to this family and tell them that they had removed the body."</p>
+                <p>That set off another volley of anguis, Caraway said. “‘Oh, we knew they were lying! Where did they take him? We want to go there!' “They’re hollering so loud the crowd can hear them. Now the crowd is getting fizzed up and all that. I don’t know what the hell to say next.”</p>
+                <p>"I looked up, and there wasn’t a street light,” Caraway said. “There was not a street light on this corner, on this street, and I know that if it got dark we would have a problem."</p>
+                <p>"We have to get these people down here," he told the assistant police chief.</p>
+                <p>Only after the family was coaxed into a police vehicle, promised they could see Harper's body on a slab at the county medical office, did Dixon Avenue fall quiet.</p>
+                <p>"Had we not handled it the way that it was handled, then they would have burned downtown," Caraway said.</p>
+            </div>
 
-			<div class="dixonStory noShow">
-				<p>A faint stench of pot wafts into Dixon Grocery each time the door swings open. And the door swings constantly as the men who loited outside day and night come in for beer, cigar and the occasional violent crime.</p>
-				<p>Behind the counter, William Morel points to a display stand lined with trespass warnings.</p>
-				<p>"I have to call the police," he says. "Look at this. How many do you see right there? One two three four five six seven eight."</p>
-				<p>But the men come back as soon as the police roll out.</p>
-				<p>"If you come 5, 6, 8 o'clock you're going to see the same people," Morel says. "Selling drugs, all day. All kinds of drugs."</p>
-				<p>In April, a fistfight over a small debt ended after one man fetched a pistol from his SUV and shot the other in the leg. It was the second shooting in the store parking lot that month.</p>
-			</div>
+        </div>
+    </div>
+</div>
 
-		</div>
+
+	<div id="dixon5" class="dixonSection dixonMap">
+
+    <div class="dixonHead">
+
+        <img src="images/_policeIntro.jpg" alt="default image"  />
+        <p class="mapper">View map</p>
+        <h3>The police</h3>
+        <h4>The near riot on Dixon promoted reforms in the Dallas Police Department and, according to some residents, changed how police acted in the neighborhood. But it didn’t last. Where some see harassment, others feel neglect.</h4>
+
     </div>
 
-    <div id="dixon3" class="dixonSection">
-        <h4>Section header</h4>
-        <p>plagiarism linkbait explainer rubber cement YouTube Buttry 5 praise erasers & how to avoid them Patch newspaper strike going forward lede, Reuters but what's the business model Gardening & War section The Daily a giant stack of newspapers that you'll never read linking community CNN leaves it there Instagram try PR, The Weekender social media nut graf stream Google+ AOL digital first monetization Ushahidi. semipermeable hot news doctrine view from nowhere audience atomization overcome hyperhyperlocal twitterati awesome, stupid commenters algorithms commons-based peer production cancel my subscription.</p>
-        <p>synergize Sulzberger newsonomics community Aron Pilhofer The Weekender RSS media diet get me rewrite Instagram gutter, crowdsourcing collaboration serendipity Nook Dayton for under $900 a day every dog loves food bloggers in their mother's basement newspaper strike #twittermakesyoustupid gamification, recontextualize kitchen table of the future lede tools linking MinnPost open source Zite shoot a photo. Clay Shirky RSS CPC got drudged free as in beer horse-race coverage Twitter topples dictators incent Quora, Like button newsroom cafe he said she said Lucius Nieman data visualization TechCrunch Julian Assange Jeff Jarvis WSJ, the medium is the message Encyclo Google+ ProPublica tools newspaper strike process vs. product.</p>
+    <div class="dixonContent">
+
+        <div class="dixonStories clearFix">
+            <ul>
+                <li class="activeItem">1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+
+            <div class="dixonStory clearFix">
+                <div class="imageGroup">
+                    <img src="images/_slacking.jpg" alt="alt text"  />
+                    <p>A Dallas police cruiser drives down Dixon Avenue in front of the Dixon Grocery, the site of a large gathering of neighbors Tuesday afternoon after the shooting of suspect James Harper in 2012. (File photo)</p>
+                </div>
+                <h5>They start slacking</h5>
+                <h6>as told by the woman with the bat</h6>
+                <p>The woman with the bat volunteers at the rec center, where police officers host outreach events. </p>
+                <p>How often do you see police?</p>
+                <p>Woman: I see them drive by.</p>
+                <p>Do you see them walk the neighborhood?</p>
+                <p>Woman: Not in a long time. Now when that guy first got killed…when they first shot that boy – they walked the neighborhood for I’d say maybe, I’m going to give them a month.</p>
+                <p>I heard they were playing basketball with residents here at the rec. Do you remember that?</p>
+                <p>Woman: Yeah. Then they start slacking. And you know how most people are. You stop making an appearance, they feel like they can go back to their old ways.</p>
+                <p>So you think that their presence here helped after the shooting?</p>
+                <p>Woman: Yeah, it helped a whole lot.</p>
+                <p>Did the drug dealers move out of the grocery store?</p>
+                <p>Woman: Not really.</p>
+                <p>So what improved during that time?</p>
+                <p>Woman: Nothing. To me, it just makes me more comfortable. I can’t speak for nobody else. But I feel better. Knowing their presence was, you know.</p>
+                <p>She sips her fruit punch from a paper cup filled to the brim.</p>
+            </div>
+
+            <div class="dixonStory noShow clearFix">
+                <div class="imageGroup">
+                    <img src="images/_terminator.jpg" alt="alt text"  />
+                    <p>In 2012, Dallas Police Department tweeted a photo of Officer Steger tutoring students at Larry Johnson Recreation Center.</p>
+                </div>
+                <h5>The terminator</h5>
+                <h6>as told by Freddie Smith</h6>
+                <p>Smith wonders out loud if police are too scared to come over and talk to people in Dixon.</p>
+
+<p>But there was this one cop, he says, launching into a giddy monologue.</p>
+
+<p>I call him the Terminator. Everybody loved the Terminator.</p>
+
+<p>“Hey, Terminator! How you doing?” Waving him down. He got so tired of waving.</p>
+
+<p>He'd come walk up to you: “Uh, you know I got you for a warrant, right?”</p>
+
+<p>“Yessir!”</p>
+
+<p>I haven't seen him in a while. I don't know if they moved him somewhere else.</p>
+
+<p>I bet you the Terminator could walk from here all the way down and in the hood. Everybody kids going to come and hug him. When he came in the hood he didn't come in there harassing nobody.</p>
+
+<p>Nobody ran!</p>
+
+<p>He's a white, bald-headed guy, and I love him, I swear.</p>
+
+<p>One day I was driving down through the hood. I be driving trash and stuff. I put it in my yard. I get there, coming through there, flying.</p>
+
+<p>Uh-oh! The police behind me!</p>
+
+<p>He get behind me, pull up in my yard. I called him Terminator. He said, “My name ain’t that!” and “You better watch that, driving that truck.”</p>
+
+<p>He didn't get me saying, “Oh, I’m going to slam you down.”</p>
+
+<p>“Yessir! Yessir!”</p>
+
+<p>He don't be letting us going with nothing. He's a tough man. But ain’t nobody going to run from him.</p>
+
+<p>One time a guy was running from the police and he walked out the house and he [Terminator] said, “Billy. Come on, Billy.” Billy didn't run.</p>
+
+<p>Like I told you. It's one cop that if you could talk about a good cop, that's a good cop. </p>
+            </div>
+
+            <div class="dixonStory noShow clearFix">
+                <h5>Ebb and flow</h5>
+                <h6>as told by the police</h6>
+                <p>The shooting death of James Harper inspired Chief David Brown to make changes.</p>
+
+<p>He required that all cops receive Taser training and get recorded proof of consensual searches. He limited when officers should chase suspects on foot. And he vowed to improve police relations in Dixon.</p>
+
+<p>“What we need to do is just commit some community policing tactics to that area, along with a lot of enforcement in that area,” Brown said at the time.</p>
+
+<p>Police began showing up for weekly basketball games at the rec center. They say their focus was on the teens.</p>
+
+<p>“Whereas you probably ran up to the police as a younger child and gave them a hug, now you look at them in a different light…because your thinking is different, or just because of things you may have heard or seen or experienced,” says Officer Kevin Masters, who does youth outreach citywide.</p>
+
+<p>He thinks the games made a difference. Teens relaxed around police.</p>
+
+<p>But the regular basketball games lasted only two years as participation fell off.</p>
+
+<p>“Our programs ebb and flow depending on what else is down there for the kids,” said Lt. Sally Lannom, who oversees youth outreach.</p>
+
+<p>Cops take children from the area to computer lessons at NorthPark Center or to hang out at a bowling alley in Plano. They might start volleyball and basketball at the rec this fall, if they can get enough kids to join.</p>
+
+<p>Police say they’re trying to figure out how to connect with Dixon better. A “field day” in June drew only six neighborhood children, even though officers had advertised the event. Cops had so many hot dogs leftover that they gave them away to another program.</p>
+
+<p>The historic tension between police and minority neighborhoods lingers, Lannom says.</p>
+
+<p>“You had that distrust,” she says. “The fact that your iconic pictures from the civil rights era, it’s the police doing things, enforcing things and keeping people from doing what basically they should have been allowed to do.”</p>
+
+<p>But, Lannom says, “we’re not going to give up.”</p>
+            </div>
+
+            <div class="dixonStory noShow clearFix">
+                <div class="imageGroup">
+                    <img src="images/_defaultImage.jpg" alt="alt text"  />
+                    <p>cutline</p>
+                </div>
+                <h5>Not one</h5>
+                <h6>as told by the reverend and his brother</h6>
+                <p>Dixon liked the increase in police presence, the Freeneys say. Especially the basketball.</p>
+
+<p>Paul: That went well.</p>
+
+<p>Who came?</p>
+
+<p>Paul: People in the community. People outside of the community. It really made a difference.</p>
+
+<p>The reverend and his brother say drug dealers even moved out of the corner. But that victory was short lived.</p>
+
+<p>The boost in police enforcement tapered off after two years, according to the Freeneys. The dealers came back.</p>
+
+<p>Paul: All we had to do is pick up the phone. We have people that live in this neighborhood that are afraid to even call the police because they have to live here.</p>
+
+<p>Earnest: They're afraid of retaliation. Not the police. They're not afraid of the police.</p>
+
+<p>Now the reverend and his brother can’t name any officers the church deals with.</p>
+
+<p>“Don’t have a one. Don’t have a one. Don’t have a one,” the pastor says.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+	<div id="dixon6" class="dixonSection dixonMap">
+
+    <div class="dixonHead">
+
+        <img src="images/_larryJohnson.jpg" alt="default image"  />
+        <p class="mapper">View map</p>
+        <h3>The kid who got out</h3>
+        <h4>In Dixon, hope and desolation live on opposite sides of the same street. Former NBA star and Dixon resident Larry Johnson found success despite his surroundings. Not everyone is so fortunate.</h4>
+
     </div>
 
-    <div id="dixon4" class="dixonSection">
-        <h4>Section header</h4>
-        <p>plagiarism linkbait explainer rubber cement YouTube Buttry 5 praise erasers & how to avoid them Patch newspaper strike going forward lede, Reuters but what's the business model Gardening & War section The Daily a giant stack of newspapers that you'll never read linking community CNN leaves it there Instagram try PR, The Weekender social media nut graf stream Google+ AOL digital first monetization Ushahidi. semipermeable hot news doctrine view from nowhere audience atomization overcome hyperhyperlocal twitterati awesome, stupid commenters algorithms commons-based peer production cancel my subscription.</p>
-        <p>synergize Sulzberger newsonomics community Aron Pilhofer The Weekender RSS media diet get me rewrite Instagram gutter, crowdsourcing collaboration serendipity Nook Dayton for under $900 a day every dog loves food bloggers in their mother's basement newspaper strike #twittermakesyoustupid gamification, recontextualize kitchen table of the future lede tools linking MinnPost open source Zite shoot a photo. Clay Shirky RSS CPC got drudged free as in beer horse-race coverage Twitter topples dictators incent Quora, Like button newsroom cafe he said she said Lucius Nieman data visualization TechCrunch Julian Assange Jeff Jarvis WSJ, the medium is the message Encyclo Google+ ProPublica tools newspaper strike process vs. product.</p>
+    <div class="dixonContent">
+
+        <div class="dixonStories singleStory clearFix">
+
+            <div class="dixonStory clearFix">
+                <div class="imageGroup">
+                    <img src="images/_recCenter.jpg" alt="alt text"  />
+                    <p>NBA All Star forward Larry Johnson gave $1 million to the city of Dallas to build this recreation center in the neighborhood where he grew up. (File photo)</p>
+                </div>
+                <p>The boy liked to get in fights. He was sent to boxing classes with the cops as punishment.</p>
+
+<p>It worked.</p>
+
+<p>Larry Johnson became an NBA star in the ‘90s, first with the Charlotte Hornets, then with the New York Knicks.</p>
+
+<p>One night he cruised into Dixon in his Benz and parked by the old basketball court. A patrol car pulled up.</p>
+
+<p>“This is a drug-infested neighborhood,” an officer told Johnson. “What are you doing here?"</p>
+
+<p>He told the officer it was home.</p>
+
+<p>Johnson donated $1 million to the city of Dallas in 1995 so it could build a recreation center on Dixon Avenue. It became the neighborhood’s sanctuary.</p>
+
+<div class="imageGroup">
+    <img src="images/_abandoned.jpg" alt="alt text"  />
+    <p>A structure remains un-built along Dixon Avenue in the Dixon Circle neighborhood of Dallas Monday August 1, 2016. It has been more than four years since the police-involved shooting and death of James Harper on July 24, 2012. (Andy Jacobsohn/Staff Photographer)</p>
+</div>
+
+<p>There are no drugs here, no bullets. Only children’s laughter and families splayed on the grass, soaking up the sun, as if protected by a force field.</p>
+
+<p>Across the street is the metal frame of a building, forgotten in a patch of weeds. That was also Johnson’s hand.</p>
+
+<p>It was supposed to be a child care facility, according to city records. Construction began in 2006 and never finished.</p>
+
+<p>It’s unclear why Johnson and his associates abandoned the plans. He lives in New York now, where he shows off Lexus cars for charity.</p>
+
+<p>He doesn’t come to Dixon anymore.</p>
+
+<p>Mike Mike – the man unceremoniously shot in the leg outside Dixon’s corner store in April – also could have made the pros, according to some residents. They say he would have at least gotten a scholarship, had he finished high school.</p>
+
+<p>Now his neighbors watch him limp along on crutches to pick up his daughter from summer camp at the rec.</p>
+
+<p>He doesn’t play basketball anymore. </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+	</section>
+
+    <div id="dfpAdPositionMiddle" class="ad"> <!-- to remove bottom and top rules, add class "noRule" -->
+        <p class="adLabel">Advertisement</p>
+        <script type="text/javascript">googletag.display('dfpAdPositionMiddle');</script>
+    </div>
+    <!-- end adBlock -->
+
+<section class="contentWell">
+
+
+	<div id="dixon7" class="dixonSection dixonMap">
+
+    <div class="dixonHead" style="padding-top: 4.8rem;">
+
+        <p class="mapper">View map</p>
+        <h3>Freddie’s last bust</h3>
+        <h4>Freddy Smith is no stranger to police activity in Dixon Circle, having spent at least half of his life in and out of jail. But after an altercation in 2014 which resulted in an 18-month sentence for evasion and drug possession, Smith vows to never go back.</h4>
+
     </div>
 
-    <div id="dixon5" class="dixonSection">
-        <h4>Section header</h4>
-        <p>plagiarism linkbait explainer rubber cement YouTube Buttry 5 praise erasers & how to avoid them Patch newspaper strike going forward lede, Reuters but what's the business model Gardening & War section The Daily a giant stack of newspapers that you'll never read linking community CNN leaves it there Instagram try PR, The Weekender social media nut graf stream Google+ AOL digital first monetization Ushahidi. semipermeable hot news doctrine view from nowhere audience atomization overcome hyperhyperlocal twitterati awesome, stupid commenters algorithms commons-based peer production cancel my subscription.</p>
-        <p>synergize Sulzberger newsonomics community Aron Pilhofer The Weekender RSS media diet get me rewrite Instagram gutter, crowdsourcing collaboration serendipity Nook Dayton for under $900 a day every dog loves food bloggers in their mother's basement newspaper strike #twittermakesyoustupid gamification, recontextualize kitchen table of the future lede tools linking MinnPost open source Zite shoot a photo. Clay Shirky RSS CPC got drudged free as in beer horse-race coverage Twitter topples dictators incent Quora, Like button newsroom cafe he said she said Lucius Nieman data visualization TechCrunch Julian Assange Jeff Jarvis WSJ, the medium is the message Encyclo Google+ ProPublica tools newspaper strike process vs. product.</p>
+    <div class="dixonContent">
+
+        <div class="dixonStories singleStory clearFix">
+
+            <div class="dixonStory clearFix">
+                <div class="imageGroup">
+                    <img src="images/_freddy.jpg" alt="alt text"  />
+                    <p>Freddie Smith.</p>
+                </div>
+                <p>A weed wacker in his hand, Freddie Smith watches a squad car speed past him down the avenue, across the railroad tracks and out of Dixon Circle.</p>
+
+<p>"When I see the polices, I start shaking. My heart starts fluttering, because I don't know what you got on your mind," he says. "That was probably the sergeant. They gonna come back round. You'll see. He'll send his boys."</p>
+
+<p>Then he reconsiders. The police have stepped light in Dixon Circle since the downtown shooting.</p>
+
+<p>"They don't know who's crazy now," Freddie says.</p>
+
+<p>A 9th grade dropout, Smith has been acquainted with a jail cell on and off for at least half his 50 years.</p>
+
+<p>In the early 1990s, he was taken in a raid on the drug infested apartments down the street, charged with dealing and sentenced to prison for seven years.</p>
+
+<p>After he got out, a string of arrests for minor things: driving without a license in the rich northern suburb Highland Park, illegal dumping, pot possession, nothing that would raise an eyebrow on Dixon Circle.</p>
+
+<p>And then one evening in 2014, two years after James Harper was killed, a traffic cop spotted Freddie Smith riding a bicycle the wrong way down Dixon Avenue.</p>
+
+<p>The officer hit his sirens, but Smith kept pedaling—past the church and the drug corner, almost to the door of his house before an police caught him. "Get down! get down!'" Smith remembers.</p>
+
+<p>"I ain't doing nothing," he told the officer, according to his arrest report. "Just trying to smoke my weed."</p>
+
+<p>He struggled. The officer pressed his arm, and he started to yelled. He cursed and screamed that his rights were being violated. He threatened to start up more riots, and to pay a visit to the chief of police.</p>
+
+<p>He screamed until they forced him into a patrol car and drove him away, to face an 18 month sentence for evasion and drug possession. He had two joints in his hand. He says they were planted.</p>
+
+<p>That was Freddie Smith's last arrest. Today, he says he avoids the corner. He's more likely to spend his evenings working construction or mowing a lawn in front of the church.</p>
+
+<p>But he's not going back to jail.</p>
+
+<p> "If I go to jail again I'm going to do about 50 years, just because they lied on me from that time to this time,” Smith says. "This is my last round for them lying on me.</p>
+
+<p>"If I ever get tied up with a police officer, this time he got to kill me."</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+	<div id="dixon8" class="dixonSection">
+
+    <div class="dixonHead">
+
+        <img src="images/_exampleIntro.jpg" alt="Sgt. Sheldon Smith talks with Bryson Busby."  />
+        <p class="mapper">View map</p>
+        <h3>The example</h3>
+        <h4>Sgt. Sheldon Smith pulls up to the corner store late on an August morning, four years after his basketball program ended. A crowd scatters from the parking lot. Only one man stays: Bryson Busby. Sgt. Smith introduces himself. Busby gives him a fake name, at first. But then they get to talking—not of basketball, but of cops and the corner.</h4>
+
     </div>
 
-    <div id="dixon6" class="dixonSection">
-        <h4>Section header</h4>
-        <p>plagiarism linkbait explainer rubber cement YouTube Buttry 5 praise erasers & how to avoid them Patch newspaper strike going forward lede, Reuters but what's the business model Gardening & War section The Daily a giant stack of newspapers that you'll never read linking community CNN leaves it there Instagram try PR, The Weekender social media nut graf stream Google+ AOL digital first monetization Ushahidi. semipermeable hot news doctrine view from nowhere audience atomization overcome hyperhyperlocal twitterati awesome, stupid commenters algorithms commons-based peer production cancel my subscription.</p>
-        <p>synergize Sulzberger newsonomics community Aron Pilhofer The Weekender RSS media diet get me rewrite Instagram gutter, crowdsourcing collaboration serendipity Nook Dayton for under $900 a day every dog loves food bloggers in their mother's basement newspaper strike #twittermakesyoustupid gamification, recontextualize kitchen table of the future lede tools linking MinnPost open source Zite shoot a photo. Clay Shirky RSS CPC got drudged free as in beer horse-race coverage Twitter topples dictators incent Quora, Like button newsroom cafe he said she said Lucius Nieman data visualization TechCrunch Julian Assange Jeff Jarvis WSJ, the medium is the message Encyclo Google+ ProPublica tools newspaper strike process vs. product.</p>
-    </div>
+    <div class="dixonContent">
 
-    <div id="dixon7" class="dixonSection">
-        <h4>Section header</h4>
-        <p>plagiarism linkbait explainer rubber cement YouTube Buttry 5 praise erasers & how to avoid them Patch newspaper strike going forward lede, Reuters but what's the business model Gardening & War section The Daily a giant stack of newspapers that you'll never read linking community CNN leaves it there Instagram try PR, The Weekender social media nut graf stream Google+ AOL digital first monetization Ushahidi. semipermeable hot news doctrine view from nowhere audience atomization overcome hyperhyperlocal twitterati awesome, stupid commenters algorithms commons-based peer production cancel my subscription.</p>
-        <p>synergize Sulzberger newsonomics community Aron Pilhofer The Weekender RSS media diet get me rewrite Instagram gutter, crowdsourcing collaboration serendipity Nook Dayton for under $900 a day every dog loves food bloggers in their mother's basement newspaper strike #twittermakesyoustupid gamification, recontextualize kitchen table of the future lede tools linking MinnPost open source Zite shoot a photo. Clay Shirky RSS CPC got drudged free as in beer horse-race coverage Twitter topples dictators incent Quora, Like button newsroom cafe he said she said Lucius Nieman data visualization TechCrunch Julian Assange Jeff Jarvis WSJ, the medium is the message Encyclo Google+ ProPublica tools newspaper strike process vs. product.</p>
-    </div>
+        <div class="dixonStories singleStory clearFix">
 
-    <div id="dixon8" class="dixonSection">
-        <h4>Section header</h4>
-        <p>plagiarism linkbait explainer rubber cement YouTube Buttry 5 praise erasers & how to avoid them Patch newspaper strike going forward lede, Reuters but what's the business model Gardening & War section The Daily a giant stack of newspapers that you'll never read linking community CNN leaves it there Instagram try PR, The Weekender social media nut graf stream Google+ AOL digital first monetization Ushahidi. semipermeable hot news doctrine view from nowhere audience atomization overcome hyperhyperlocal twitterati awesome, stupid commenters algorithms commons-based peer production cancel my subscription.</p>
-        <p>synergize Sulzberger newsonomics community Aron Pilhofer The Weekender RSS media diet get me rewrite Instagram gutter, crowdsourcing collaboration serendipity Nook Dayton for under $900 a day every dog loves food bloggers in their mother's basement newspaper strike #twittermakesyoustupid gamification, recontextualize kitchen table of the future lede tools linking MinnPost open source Zite shoot a photo. Clay Shirky RSS CPC got drudged free as in beer horse-race coverage Twitter topples dictators incent Quora, Like button newsroom cafe he said she said Lucius Nieman data visualization TechCrunch Julian Assange Jeff Jarvis WSJ, the medium is the message Encyclo Google+ ProPublica tools newspaper strike process vs. product.</p>
+            <div class="dixonStory clearFix">
+                <div class="imageGroup">
+                    <img src="images/_busby.jpg" alt="Bryson Busby speaks with his uncle, Charles Johnson outside of Dixon Grocery."  />
+                    <p>Dixon Circle resident Bryson Busby (left) speaks with his uncle, Charles Johnson (right), outside of Dixon Grocery in the Dixon Circle neighborhood of Dallas Monday August 1, 2016. It has been more than four years since the police-involved shooting and death of James Harper on July 24, 2012. (Andy Jacobsohn/Staff Photographer)</p>
+                </div>
+                <p>Bryson: We scared of them; they scared of us. You know what I'm saying? Everybody's scared.</p>
+
+<p>Sgt: What about the crime? The jacking the robbing?</p>
+
+<p>BB: I know how to see a jack boy coming. I can't tell no friendly police officer, if you ready to help me or you ready to take me down.</p>
+
+<p>Sgt: You been to jail before?</p>
+
+<p>BB: I just got out two and a half years now. Seven years, seven months on an eight year sentence for a murder case I caught right across the street.</p>
+
+<p>Sgt: So, you working,?</p>
+
+<p>BB: I go to the barber college up on Martin Luther King.</p>
+
+<p>Sgt: Excellent. Excellent</p>
+
+<p>BB: I'm about a month away from graduating. And I do music. Me and my brother own a record label.</p>
+
+<p>Sgt: When did you acquire that talent? When you was in jail?</p>
+
+<p>BB: [Nods.] You know, growing up you don't have yor mind made up on what you're going to do. That's mainly because you don't know who you are. So when I got out, I got a second chance at life, and I don't take that lightly.</p>
+
+<p>Sgt: In 2006, would you have sit up and talked to me? </p>
+
+<p>BB: I would have not. I would never stop. You see all my peers gone.</p>
+
+<p>Sgt: Me being a police officer here, this was my area. They would talk to me because they knew me.</p>
+
+<p>BB: You gotta want better over here. You gotta want better for yourself.</p>
+
+<p>Sgt:. Mm hm. And be an example.</p>
+
+<p>BB: An example; there you go. I’m an example, right here, talking to you. I’m gonna sit at the corner store, I'm gonna be the motherfucker, you know what i’m saying? The example. For real. Follow me.</p>
+
+<p>He glances across a vacant lot, where the crowd has reconstituted under a tree and casts sidelong glances as Busby and the policeman.</p>
+
+<p>If they see me talking to you they ain’t gonna think, 'Oh God Body’s snitching,' Busby says. "Because my resume’s solid enough to be taking to an officer. They know me as a man. My integrity and my morals and my background is up enough for me to sit here and talk to you, in front of everybody.</p>
+
+<p>They share a long handshake, and Smith gets back in his SUV and rolls out of Dixon. </p>
+
+<p>Busby's friends keep their distance a while longer. It's his day off, so he'll be out on the corner all day. He was born and raised in Dixon Circle. He's been standing on this corner before he went to prison, and after he got out.</p>
+
+<p>He looks out across the street, as the traffic passes up the avenue.</p>
+
+<p>"He the first one," he says. "He the first one I ever seen to stop like that."</p>
+            </div>
+
+
+        </div>
     </div>
+</div>
+
+
+	</section>
+
+    <div id="dfpAdPositionBottom" class="ad"> <!-- to remove bottom and top rules, add class "noRule" -->
+        <p class="adLabel">Advertisement</p>
+        <script type="text/javascript">googletag.display('dfpAdPositionBottom');</script>
+    </div>
+    <!-- end adBlock -->
+
+<section class="contentWell">
 
 
   <!--
@@ -319,31 +872,31 @@ googletag.enableServices();
   -->
 
 	<section class="credits clearFix">
-		<p>Author: <a href="mailto:emailaddress">Name</a></p>
-		<p>Editor: <a href="mailto:emailaddress">Name</a></p>
+		<p>Authors: <a href="mailto:aselk@dallasnews.com">Avi Selk</a> and <a href="mailto:jchiquillo@dallasnews.com">Julieta Chiquillo</a></p>
+		<p>Editor: <a href="mailto:btomaso@dallasnews.com">Bruce Tomaso</a></p>
 		<p>Copy Editor: <a href="mailto:emailaddress">Name</a></p>
-		<p>Photos: <a href="mailto:emailaddress">Name</a></p>
-		<p>Graphics: <a href="mailto:emailaddress">Name</a></p>
-		<p>Designer: <a href="mailto:emailaddress">Name</a></p>
+		<p>Photos: <a href="mailto:emailaddress">Andy Jacobsohn</a>, <a href="mailto:tshen@dallasnews.com">Ting Shen</a> and <a href="mailto:tfox@dallasnews.com">Tom Fox</a></p>
+		<p>Photo Editor: <a href="mailto:mhamtil@dallasnews.com">Michael Hamtil</a></p>
+		<p>Graphics and Design: <a href="mailto:jhancock@dallasnews.com">John Hancock</a></p>
 	</section>
 	<!-- end credits -->
 
 	<section class="more clearFix">
 		<h5>More from The Dallas Morning News</h5>
-		<a class="clearFix" href="#">
-			<img src="images/_defaultImage.jpg" alt="#" />
-			<h6>Story title goes here</h6>
-			<p>Description of the story goes in this spot here</p>
+		<a class="clearFix" href="http://interactives.dallasnews.com/2016/stray-dogs/">
+			<img src="images/_dogShare.jpg" alt="Two loose dogs drink from a rain puddle in Southern Dallas." />
+			<h6>Explaining Dallas’ dog problem</h6>
+			<p>Six charts that explain why dangerous dogs run loose in Dallas and why solutions have so proved elusive.</p>
+		</a>
+		<a class="clearFix" href="http://interactives.dallasnews.com/2016/unregulated-rodeos/">
+			<img src="images/_rodeoShare.jpg" alt="Alejandro Estrada Sr. tries to flip a steer at a coleadero in southern Dallas County." />
+			<h6>A Deadly ride</h6>
+			<p>Mexican-style rodeos draw crowds in unincorporated Dallas County, but they are unregulated — and have proved fatal.</p>
 		</a>
 		<a class="clearFix" href="#">
-			<img src="images/_defaultImage.jpg" alt="#" />
-			<h6>Story title goes here</h6>
-			<p>Description of the story goes in this spot here</p>
-		</a>
-		<a class="clearFix" href="#">
-			<img src="images/_defaultImage.jpg" alt="#" />
-			<h6>Story title goes here</h6>
-			<p>Description of the story goes in this spot here</p>
+			<img src="images/_homeShare.jpg" alt="Janice Hensley and her classmates bow their heads in prayer during a ceremony marking graduation from the Dallas Life homeless shelter’s 10-month program for homeless men and women." />
+			<h6>The long way home</h6>
+			<p>After a year in a shelter, a mother and father try to reconstruct a decent life for their family.</p>
 		</a>
 	</section>
 	<!-- end more -->

@@ -10,12 +10,127 @@
 @import 'variables';
 @import 'mixins';
 
+
+
+#splash {
+    width: 100%;
+    height: calc(100vh - 51px);
+    display: block;
+    z-index: 100;
+    background-image: url("../images/dixonlede-2400.jpg"), linear-gradient(to right, rgb(0,0,0), rgb(0,0,0));
+    background-size: cover, cover;
+    background-position: right top, center center;
+    background-repeat: no-repeat, no-repeat;
+    position: fixed;
+    top: 51px;
+    left: 0;
+    overflow-y: auto;
+}
+
+@keyframes splashFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes splashSlide {
+    from {
+        -webkit-transform: translate3d(0, 250px, 0);
+        -moz-transform: translate3d(0, 250px, 0);
+        -o-transform: translate3d(0, 250px, 0);
+        transform: translate3d(0, 250px, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes splashDelay1 {
+    0% {opacity: 0;}
+    45% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.displayHead {
+    width: 90%;
+    text-align: left;
+    padding: 0 0 50px 50px;
+    max-width: 800px;
+    h1 {
+        width: 100%;
+        max-width: 765px;
+        font-family: $custom;
+        text-transform: uppercase;
+        @include type(18rem, 14.5rem, 0);
+        margin-top: 4rem;
+        font-weight: bold;
+        color: $dixonYellow;
+        display: inline-block;
+        -webkit-mask-image: url("../images/_testTexture2.png");
+    	-o-mask-image: url("../images/_testTexture2.png");
+    	-moz-mask-image: url("../images/_testTexture2.png");
+    	mask-image:  url("../images/_testTexture2.png");
+        -webkit-animation: splashFade 3s, splashSlide 3s;
+        -moz-animation: splashFade 3s, splashSlide 3s;
+        -o-animation: splashFade 3s, splashSlide 3s;
+        animation: splashFade 3s, splashSlide 3s;
+    }
+    h2 {
+        font-family: $sans;
+        color: white;
+        @include type(3rem, 3.6rem, 2.4rem );
+        @include animation(splashDelay1, 6s);
+    }
+    p {
+        font-family: $sans;
+        @include type(1.5rem, 2.4rem, 2.4rem);
+        color: white;
+        @include animation(splashDelay1, 6s);
+        position: relative;
+    }
+}
+
+#readMore {
+    padding: 10px;
+    background-color: $dixonYellow;
+    color: $dixonDark;
+    position: relative;
+    top: 1.2rem;
+    @include transition(background-color, .25s, ease-out);
+    &:visited {
+        color: $dixonDark;
+    }
+    &:hover {
+        background-color: darken($dixonYellow, 10%);
+        text-decoration: none;
+    }
+}
+
 #map {
     width: 50%;
     height: 100vh;
     position: fixed;
     top: 0;
     right: 0;
+}
+
+.mapHead {
+    font-family: $sans;
+    font-weight: bold;
+    @include type(1.8rem, 2.4rem, 0);
+}
+.mapboxgl-popup-content {
+    padding: 10px 30px 10px 10px !important;
+}
+
+.mapboxgl-popup-close-button {
+    font-size: 20px !important;
+    font-weight: bold;
 }
 
 #mapReset {
@@ -37,7 +152,7 @@
         outline: 0;
     }
     &.moved {
-        top: 10px;
+        top: 20px;
     }
 }
 
@@ -47,7 +162,7 @@
 
 #wrapper {
     width: 50%;
-    padding: 20px 0px;
+    padding: 0px 0px 20px;
     float: left;
 }
 
@@ -61,28 +176,30 @@
 
 .dixonSection {
     margin-bottom: 6rem;
-    h3, h4, h5, h6 {
+    h3, h5, h6 {
         font-family: $custom;
     }
     h3 {
-        padding: 0 30px;
+        padding: 5px 30px;
         font-weight: 700;
         text-transform: uppercase;
-        @include type(9.6rem, 9.6rem, 0rem)
+        @include type(14rem, 10.2rem, 0rem)
+        margin-top: 1rem;
         -webkit-mask-image: url("../images/_testTexture2.png");
     	-o-mask-image: url("../images/_testTexture2.png");
     	-moz-mask-image: url("../images/_testTexture2.png");
     	mask-image:  url("../images/_testTexture2.png");
-        color: white;
+        color:  $dixonDark;
     }
     h4 {
         padding: 0 30px;
         font-weight: 400;
-        color: white;
-        @include type(3.3rem, 3.6rem, 0);
+        color:  $dixonDark;
+        font-family: $sans;
+        @include type(2rem, 3rem, 0);
         &:after {
             @include psuedoElement(100%, 5px);
-            background-color: white;
+            background-color: $dixonDark;
             top: 10px;
             -webkit-mask-image: url("../images/_testTexture2.png");
         	-o-mask-image: url("../images/_testTexture2.png");
@@ -91,12 +208,14 @@
         }
     }
     h5 {
-        @include type(3rem, 3.6rem, 0);
-        color: $black33;
+        @include type(3.6rem, 3.6rem, 0);
+        color: $dixonDark;
+        text-transform: uppercase;
+        font-weight: 700;
     }
     h6 {
         color: white;
-        background-color: $black33;
+        background-color: $dixonDark;
         display: inline-block;
         padding: 3px 5px 0;
         text-transform: uppercase;
@@ -112,27 +231,9 @@
     }
 }
 
-.addy {
-    margin-left: 30px;
-    font-family: $custom !important;
-    font-size: 2rem !important;
-    line-height: 2.4rem;
-    margin-bottom: 2.4rem !important;
-    display: inline-block;
-    color: white;
-    text-transform: uppercase;
-    &:after {
-        @include psuedoElement(100%, 3px);
-        background-color: white;
-        -webkit-mask-image: url("../images/_testTexture2.png");
-        -o-mask-image: url("../images/_testTexture2.png");
-        -moz-mask-image: url("../images/_testTexture2.png");
-        mask-image:  url("../images/_testTexture2.png");
-    }
-}
 .dixonHead {
     padding: 0 0 4.8rem;
-    background-color: $dixonRed;
+    background-color: $dixonYellow;
     margin-bottom: 2.4rem;
     img {
         margin-bottom: 2.4rem;
@@ -142,39 +243,76 @@
     padding: 2.4rem 30px;
 }
 
+@keyframes slidein {
+    from {
+        -webkit-transform: translate3d(0, -100px, 0);
+        -moz-transform: translate3d(0, -100px, 0);
+        -o-transform: translate3d(0, -100px, 0);
+        transform: translate3d(0, -100px, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
 .dixonStories {
+    padding-top: 70px;
+    position: relative;
+    &.singleStory {
+        padding-top: 0;
+    }
     ul {
         font-family: $sans;
-        margin-bottom: 2.4rem;
+        margin-bottom: 24px;
+        position: absolute;
+        padding-top: 10px;
+        top: 0;
+        &.stuck {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 50%;
+            border-bottom: 1px solid $dixonDark;
+            padding-left: 30px;
+            background-color: white;
+            min-height: 70px;
+            -webkit-animation: slidein .25s;
+            -moz-animation: slidein .25s;
+            -o-animation: slidein .25s;
+            animation: slidein .25s;
+        }
     }
     li {
         display: inline-block;
         font-weight: bold;
         @include type(1.4rem, 30px, 0);
-        color: $black33;
+        color: $dixonDark;
         margin-right: 10px;
         cursor: pointer;
         width: 36px;
         height: 36px;
         text-align: center;
-        border: 3px solid $black33;
+        border: 3px solid $dixonYellow;
         @include transition(all, .25s, ease-out);
         position: relative;
         &:last-of-type {
             margin-right: 0;
         }
         &:hover, &.activeItem {
-            background-color: $black33;
-            color: white;
+            background-color: $dixonYellow;
+            color: $dixonDark;
         }
         &.activeItem {
             &:after {
                 @include psuedoElement(10px, 10px, absolute);
                 @include rotate(45deg);
-                bottom: -7px;
+                bottom: -8px;
                 left: 50%;
                 margin-left: -5px;
-                background-color: $black33;
+                background-color: $dixonYellow;
             }
         }
     }
@@ -182,22 +320,41 @@
 
 .dixonStory {
     .imageGroup {
-        width: 40%;
+        width: 50%;
         float: right;
         margin: 0 0 3.6rem 3.6rem;
+        .mug {
+            max-width: 75px;
+            float: left;
+            margin: .6rem 10px 0 0;
+        }
         p {
             font-family: $sans;
-            @include type(1.2rem, 1.5rem, 1.2rem);
+            @include type(1.3rem, 1.8rem, 1.2rem);
             color: $black66;
         }
     }
 }
 
-.mapper {
-    display: none;
+.next {
+    font-family: $sans;
+    font-weight: bold;
+    color: $dixonDark;
+    @include type(1.4rem, 1.8rem, 0);
+    margin-top: 2.4rem;
+    padding-top: 2.4rem;
+    border-top: 1px dotted $dixonDark;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
 }
 
-
+.mapper {
+    display: none;
+    i {
+        margin-right: 5px;
+    }
+}
 
 .noShow {
     display: none;
@@ -207,12 +364,21 @@
     overflow: hidden;
 }
 
-
 @media (max-width: 900px) {
 
-    #map {
+    #splash {
+        background-image: url("../images/dixonlede-1200.jpg"), linear-gradient(to right, rgb(0,0,0), rgb(0,0,0));
+    }
+
+    .displayHead {
         width: 90%;
-        right: -14px;
+        padding: 0 0 50px 0;
+        margin: 0 auto;
+    }
+
+    #map {
+        width: 100%;
+        right: -0;
         transform: translate3d(100%, 0, 0);
         @include transition(all, .5s, ease-out);
         z-index: 25;
@@ -232,15 +398,21 @@
         top: 70px;
         right: 60px;
         font-size: 24px !important;
-        line-height: 35px !important;
+        line-height: 29px !important;
         width: 35px;
         height: 35px;
-        background-color: $black33;
-        color: white;
+        background-color: $dixonYellow;
+        color: $dixonDark;
+        border: 3px solid $dixonDark;
         text-align: center;
         border-radius: 50%;
         z-index: 50;
+        cursor: pointer;
         @include transition(all, .25s, ease-out);
+        &:hover {
+            background-color: $dixonDark;
+            color: $dixonYellow;
+        }
         &.moved {
             top: 20px;
         }
@@ -248,22 +420,191 @@
 
     .mapper {
         display: inline-block;
+        cursor: pointer;
+        margin-left: 35px;
+        font-size: 2rem !important;
+        font-family: $custom !important;
+        text-transform: uppercase;
+        background-color: $dixonDark;
+        color: white;
+        padding: 6px 10px 3px;
+        position: relative;
+        z-index: 20;
+        &:hover {
+            color: $dixonYellow;
+        }
+    }
+    .dixonContent {
+        padding: 2.4rem 0;
+        width: 80%;
+        margin: 0 auto;
+        &:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
     }
 
+    .dixonStories {
+        padding: 0;
+        ul {
+            width: 40px;
+            float: left;
+            &.stuck {
+                left: 10%;
+                width: 40px;
+                border-bottom: none;
+                padding-left: 0;
+            }
+            li {
+                margin-bottom: 10px;
+                &.activeItem {
+                    &:after {
+                        bottom: 50%;
+                        margin-bottom: -5px;
+                        left: auto;
+                        right: -8px;
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .dixonStory {
+        width: calc(100% - 80px);
+        float: right;
+    }
+
+    .singleStory .dixonStory {
+        width: 100%;
+        float: none;
+    }
+}
+
+@media (max-width: 750px) {
+
+    .displayHead {
+        h1 {
+            @include type(12rem, 9.6rem, 0);
+        }
+        h2 {
+            @include type(2.2rem, 3rem, 3.6rem);
+        }
+    }
+    .dixonStory {
+        .imageGroup {
+            width: 100%;
+            float: none;
+            margin: 0 0 2.4rem 0;
+        }
+    }
 }
 
 
 @media (max-width: 600px) {
-    #wrapper {
-        background-color: grey;
+
+    #splash {
+        background-image: url("../images/dixonlede-1200.jpg"), linear-gradient(to right, rgb(0,0,0), rgb(0,0,0));
+    }
+
+    .dixonContent {
+        width: 90%;
+        ul {
+            &.stuck {
+                left: 5%;
+            }
+        }
+    }
+    .dixonSection {
+        h3 {
+            @include type(10rem, 8.4rem, 0);
+        }
+        h4 {
+            @include type(1.8rem, 2.4rem, 0);
+        }
     }
 }
 
-// @media (max-aspect-ratio: 1/2) and (max-width: 600px)  {
-//     #map {
-//         height: 50vh;
-//     }
-//     #wrapper {
-//         background-color: red;
-//     }
-// }
+@media (max-width: 450px) {
+    .dixonStories {
+        padding-top: 70px;
+        ul {
+            width: 100%;
+            float: none;
+            &.stuck {
+                left: 0;
+                width: 100%;
+                padding-left: 5%;
+                border-bottom: 1px solid $dixonDark;
+            }
+            li {
+                margin-bottom: 10px;
+                &.activeItem {
+                    &:after {
+                        right: auto;
+                        margin-bottom: 0;
+                        bottom: -8px;
+                        left: 50%;
+                        margin-left: -5px;
+                        background-color: $dixonYellow;
+                    }
+                }
+            }
+        }
+
+    }
+    .dixonStory {
+        width: 100%;
+        float: none;
+    }
+
+    #mapExpander {
+        display: none;
+        &.fa-times {
+            display: inline-block;
+        }
+    }
+}
+
+.credits, .more {
+    width: 90%;
+}
+
+.shareComments li.facebookShare a {
+    background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg")
+}
+.shareComments li.twitterShare a {
+    background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg")
+}
+.shareComments li.emailShare a {
+    background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg")
+}
+.shareComments li.printShare a {
+    background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg")
+}
+
+.shareComments li.facebookShare a:hover {
+    background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg")
+}
+.shareComments li.twitterShare a:hover {
+    background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg")
+}
+.shareComments li.emailShare a:hover {
+    background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg")
+}
+.shareComments li.printShare a:hover {
+    background-image: url("http://interactives.templates.statics.s3.amazonaws.com/v1.0/images/custom/socialSpritesDixon.svg")
+}
+
+.shareCommentsTop {
+    margin: 3.6rem 0 1.2rem;
+    position: relative;
+    z-index: 30;
+    ul {
+        text-align: left;
+    }
+    @media (max-width: 600px) {
+        padding: 0 0;
+    }
+}

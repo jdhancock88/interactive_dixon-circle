@@ -20,17 +20,28 @@ $(document).ready(function() {
 	var originalLoc = [-96.7371063,32.7628376];
 
 	var locations = [
-		{number: "1", lng: -96.7332026, lat: 32.7651497},
-		{number: "2", lng: -96.7353841, lat: 32.7637329},
-		{number: "3", lng: -96.7342684, lat: 32.763229},
-		{number: "4", lng: -96.7334224, lat: 32.7643927},
-		{number: "5", lng: -96.7342638, lat: 32.7643172},
-		{number: "6", lng: -96.7385599, lat: 32.7614752},
-		{number: "7", lng: -96.7347115, lat: 32.7652384},
-		{number: "8", lng: -96.7337592, lat: 32.763672}
+		{number: "1", head: "Dixon Circle", lng: -96.73251, lat: 32.76531},
+		{number: "2", head: "The Corner", lng: -96.7353, lat: 32.76378},
+		{number: "3", head: "The Killing", lng: -96.73416, lat: 32.76324},
+		{number: "4", head: "The People", lng: -96.73377, lat: 32.76508},
+		{number: "5", head: "The Police", lng: -96.7348, lat: 32.76468},
+		{number: "6", head: "The Kid Who Got Out", lng: -96.73862, lat: 32.76178},
+		{number: "7", head: "Freddie’s Last Bust", lng: -96.73461, lat: 32.76523}
 	];
 
-	locations = GeoJSON.parse(locations, {Point: ['lat', 'lng'], include: ['number']});
+
+	// var locations = [
+	// 	{number: "1", lng: -96.7332026, lat: 32.7651497},
+	// 	{number: "2", lng: -96.7353841, lat: 32.7637329},
+	// 	{number: "3", lng: -96.7342684, lat: 32.763229},
+	// 	{number: "4", lng: -96.7334224, lat: 32.7643927},
+	// 	{number: "5", lng: -96.7342638, lat: 32.7643172},
+	// 	{number: "6", lng: -96.7385599, lat: 32.7614752},
+	// 	{number: "7", lng: -96.7347115, lat: 32.7652384},
+	// 	{number: "8", lng: -96.7337592, lat: 32.763672}
+	// ];
+
+	locations = GeoJSON.parse(locations, {Point: ['lat', 'lng'], include: ['number', 'head']});
 
 
 
@@ -82,9 +93,9 @@ $(document).ready(function() {
 			"type": "circle",
 			"paint": {
 				"circle-radius": {
-					stops: [[1, 11], [8, 9], [16, 7]]
+					stops: [[1, 10], [8, 10], [16, 9]]
 				},
-				"circle-color": "#d73027",
+				"circle-color": "#FBD44B",
 				"circle-opacity": 1
 			}
 		});
@@ -100,8 +111,11 @@ $(document).ready(function() {
 
 			var feature = features[0];
 
+			popup.remove();
+			popup = new mapboxgl.Popup();
+
 			popup.setLngLat(feature.geometry.coordinates)
-				.setHTML(feature.properties.number)
+				.setHTML("<h5 class='mapHead'>" + feature.properties.head + "</h5>")
 				.addTo(map);
 
 			animateMap(features[0].geometry.coordinates, 17, 750, 0);
@@ -136,6 +150,7 @@ $(document).ready(function() {
 		animateMap(originalLoc, 15, 750, 0);
 		popup.remove();
 		popup = new mapboxgl.Popup();
+		currentLoc = "";
 	});
 
 
@@ -164,8 +179,8 @@ $(document).ready(function() {
 
 		// for each location section, if it's visible (i.e., above the windowBottom), push
 		// that section's id to the visibleLocs array
-		$.each($(".dixonSection"), function() {
-			if (windowBottom > $(this).offset().top + 200) {
+		$.each($(".dixonMap"), function() {
+			if (windowBottom > $(this).offset().top + 350) {
 				visibleLocs.push($(this).attr("id"));
 			}
 		});
@@ -186,7 +201,7 @@ $(document).ready(function() {
 
 			// display the correspoinding popup for the current location
 			popup.setLngLat(locations.features[l-1].geometry.coordinates)
-				.setHTML(locations.features[l-1].properties.number)
+				.setHTML("<h5 class='mapHead'>" + locations.features[l-1].properties.head + "</h5>")
 				.addTo(map);
 
 			// set the current location to the last visible location
@@ -203,7 +218,7 @@ $(document).ready(function() {
 
 		// if we get all the way to the end, and the credits div scrolls into view,
 		// recenter and zoom the map to it's starting lat, long and zoom
-		if (windowBottom > $(".credits").offset().top) {
+		if (windowBottom > $("#dixon8").offset().top + 350) {
 			animateMap(originalLoc, 15, 750, 0);
 			popup.remove();
 			popup = new mapboxgl.Popup();
@@ -214,9 +229,13 @@ $(document).ready(function() {
 	// throttle the updateLoc function to run every 600 milliseconds
 	$(window).on("scroll", _.throttle(updateLoc, 600));
 
-	// animate our reset and zoom controls based on if the black bar has scrolled out of view
+
 	$(window).scroll(function() {
-		if ($(window).scrollTop() > 52) {
+
+		var top = $(window).scrollTop();
+
+		// animate our reset and zoom controls based on if the black bar has scrolled out of view
+		if (top > 52) {
 			$("#mapReset").addClass("moved");
 			$(".mapboxgl-ctrl-top-right").addClass("moved");
 			$("#mapExpander").addClass("moved");
@@ -225,18 +244,33 @@ $(document).ready(function() {
 			$(".mapboxgl-ctrl-top-right").removeClass("moved");
 			$("#mapExpander").removeClass("moved");
 		}
+
+
+
+		//animate in our subchapter navigation to stay fixed at the top in each chapter
+		var dixonContent = $(".dixonContent");
+
+		$.each($(".dixonContent"), function() {
+			if (($(this).offset().top + 60) < top && ($(this).offset().top + $(this).height()) > (top + 50)) {
+				$(this).find($("ul")).addClass("stuck");
+			} else {
+				$(this).find($("ul")).removeClass("stuck");
+			}
+		});
+
+
 	});
 
 
+
+	// functions that control expanding the map on smaller screen sizes
 	function expandMap() {
 		if ($("#map").hasClass("viewable") === true) {
 			$("#map").removeClass("viewable");
 			$("#mapExpander").removeClass("fa-times").addClass("fa-map-marker");
-			$("body").removeClass("noScroll");
 		} else {
 			$("#map").addClass("viewable");
 			$("#mapExpander").removeClass("fa-map-marker").addClass("fa-times");
-			$("body").addClass("noScroll");
 		}
 	}
 
@@ -257,23 +291,35 @@ $(document).ready(function() {
 
 	storyItem.click(function() {
 
-		// add the activeItem class to the li clicked
-		// and remove it from any siblings that have it
-		$(this).addClass("activeItem").siblings("li").removeClass("activeItem");
-
-		// grab the index number of the li clicked
 		var target = $(this).index();
 
-		// find the corresponding dixonStory div and display it, while hiding the others
-		$(this).parent("ul").siblings(".dixonStory").addClass("noShow").eq(target).removeClass("noShow");
+		var chapter = $(this).closest(".dixonSection").attr("id");
+
+		viewVignette(chapter, target);
 
 	});
 
+	$(".next").click(function() {
+		var chapter = $(this).closest(".dixonSection").attr("id");
+		var target = $(this).parent(".dixonStory").index();
+		viewVignette(chapter, target);
+	});
 
+	function viewVignette(chapter, target) {
+		var dixonCh = $("#" + chapter);
 
+		console.log(dixonCh);
+		dixonCh.find("ul").children("li").eq(target).addClass("activeItem").siblings("li").removeClass("activeItem");
+		dixonCh.find(".dixonStory").addClass("noShow").eq(target).removeClass("noShow");
 
+		var targetStory = dixonCh.find(".dixonStory").eq(target);
 
-
+		if (targetStory.offset().top <= $(window).scrollTop() ) {
+			$("html, body").animate({
+				scrollTop: (targetStory.offset().top - 80) + "px"
+			}, 250);
+		}
+	}
 
 
 });
