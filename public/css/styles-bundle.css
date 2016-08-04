@@ -966,6 +966,7 @@ XX. ADS
   color: #2F3737;
   position: relative;
   top: 1.2rem;
+  text-transform: uppercase;
   -webkit-transtion: background-color 0.25s ease-out;
   -moz-transition: background-color 0.25s ease-out;
   -o-transition: background-color 0.25s ease-out;
@@ -1186,7 +1187,7 @@ XX. ADS
 .dixonStory .imageGroup {
   width: 50%;
   float: right;
-  margin: 0 0 3.6rem 3.6rem; }
+  margin: .6rem 0 3.6rem 3.6rem; }
   .dixonStory .imageGroup .mug {
     max-width: 75px;
     float: left;

@@ -11,47 +11,148 @@ $(document).ready(function() {
 	$('.copyright').text(year);
 
 
+	////////////////////////////////////////////////
+	///// GETTING PAST THE SPLASH SCREEN ///////////
+	////////////////////////////////////////////////
+
+	$("#readMore").click(function(e) {
+		e.preventDefault();
+		$("#splash").fadeOut(500);
+		$("body").removeClass("noScroll");
+	});
+
+
+	////////////////////////////////////////////////
+	///// VIEWING STORIES WITHIN SECTIONS //////////
+	////////////////////////////////////////////////
+
+	var storyItem = $(".dixonStories ul li");
+
+	storyItem.click(function() {
+
+		var target = $(this).index();
+
+		var chapter = $(this).closest(".dixonSection").attr("id");
+
+		viewVignette(chapter, target);
+
+	});
+
+	$(".next").click(function() {
+		var chapter = $(this).closest(".dixonSection").attr("id");
+		var target = $(this).parent(".dixonStory").index();
+		viewVignette(chapter, target);
+	});
+
+	function viewVignette(chapter, target) {
+		var dixonCh = $("#" + chapter);
+
+		dixonCh.find("ul").children("li").eq(target).addClass("activeItem").siblings("li").removeClass("activeItem");
+		dixonCh.find(".dixonStory").addClass("noShow").eq(target).removeClass("noShow");
+
+		var targetStory = dixonCh.find(".dixonStory").eq(target);
+
+		if (targetStory.offset().top <= $(window).scrollTop() ) {
+			$("html, body").animate({
+				scrollTop: (targetStory.offset().top - 80) + "px"
+			}, 250);
+		}
+	}
+
+
+	////////////////////////////////////////////////
+	///// WINDOW SCROLLING FUNCTIONS ///////////////
+	////////////////////////////////////////////////
+
+
+	$(window).scroll(function() {
+
+		var top = $(window).scrollTop();
+
+		// animate our reset and zoom controls based on if the black bar has scrolled out of view
+		if (top > 52) {
+			$("#mapReset").addClass("moved");
+			$(".mapboxgl-ctrl-top-right").addClass("moved");
+			$("#mapExpander").addClass("moved");
+		} else {
+			$("#mapReset").removeClass("moved");
+			$(".mapboxgl-ctrl-top-right").removeClass("moved");
+			$("#mapExpander").removeClass("moved");
+		}
+
+
+		//animate in our subchapter navigation to stay fixed at the top in each chapter
+		var dixonContent = $(".dixonContent");
+
+		$.each($(".dixonContent"), function() {
+			if (($(this).offset().top + 60) < top && ($(this).offset().top + $(this).height()) > (top + 50)) {
+				$(this).find($("ul")).addClass("stuck");
+			} else {
+				$(this).find($("ul")).removeClass("stuck");
+			}
+		});
+
+	});
 
 
 
-	// some code blocks require javascript to function, like slideshows, synopsis blocks, etc
-	// you can find that code here: https://github.com/DallasMorningNews/generator-dmninteractives/wiki/Cookbook
+	//////////////////////////////////////////////////////
+	///// CONTROLLING MAP VIEWING ON SMALLER SCREENS /////
+	//////////////////////////////////////////////////////
 
-	var originalLoc = [-96.7371063,32.7628376];
+	// functions that control expanding the map on smaller screen sizes
+	function expandMap() {
+		if ($("#map").hasClass("viewable") === true) {
+			$("#map").removeClass("viewable");
+			$("#mapExpander").removeClass("fa-times").addClass("fa-map-marker");
+		} else {
+			$("#map").addClass("viewable");
+			$("#mapExpander").removeClass("fa-map-marker").addClass("fa-times");
+		}
+	}
 
-	var locations = [
-		{number: "1", head: "Dixon Circle", lng: -96.73251, lat: 32.76531},
-		{number: "2", head: "The Corner", lng: -96.7353, lat: 32.76378},
-		{number: "3", head: "The Killing", lng: -96.73416, lat: 32.76324},
-		{number: "4", head: "The People", lng: -96.73377, lat: 32.76508},
-		{number: "5", head: "The Police", lng: -96.7348, lat: 32.76468},
-		{number: "6", head: "The Kid Who Got Out", lng: -96.73862, lat: 32.76178},
-		{number: "7", head: "Freddie’s Last Bust", lng: -96.73461, lat: 32.76523}
-	];
+	// clicking the map expander icon in the upper right or the view map buttons
+	// triggers hiding or showing the map
+
+	$("#mapExpander").click(function() {
+		expandMap();
+	});
+
+	$(".mapper").click(function() {
+		expandMap();
+	});
 
 
-	// var locations = [
-	// 	{number: "1", lng: -96.7332026, lat: 32.7651497},
-	// 	{number: "2", lng: -96.7353841, lat: 32.7637329},
-	// 	{number: "3", lng: -96.7342684, lat: 32.763229},
-	// 	{number: "4", lng: -96.7334224, lat: 32.7643927},
-	// 	{number: "5", lng: -96.7342638, lat: 32.7643172},
-	// 	{number: "6", lng: -96.7385599, lat: 32.7614752},
-	// 	{number: "7", lng: -96.7347115, lat: 32.7652384},
-	// 	{number: "8", lng: -96.7337592, lat: 32.763672}
-	// ];
 
-	locations = GeoJSON.parse(locations, {Point: ['lat', 'lng'], include: ['number', 'head']});
+	////////////////////////////////////////////////
+	///// CHECKING IF WEBGL IS SUPPORTED ///////////
+	////////////////////////////////////////////////
 
+	if (!mapboxgl.supported()) {
+		console.log("MapBox GL not supported");
+	} else {
+		console.log("Yay, maps!");
+	}
 
 
 	////////////////////////////////////////////////
 	///// MAP SETUP ////////////////////////////////
 	////////////////////////////////////////////////
 
-	// definiing our popup. We'll position, populate it with content and add it
-	// to the map later with a click or scroll
-	var popup = new mapboxgl.Popup();
+	var originalLoc = [-96.7371063,32.7628376];
+
+	var locations = [
+		{number: "1", head: "Dixon Circle", lng: -96.73251, lat: 32.76531, zoom: 17, opacity: 1},
+		{number: "2", head: "The Corner", lng: -96.73539, lat: 32.76385, zoom: 17, opacity: 1},
+		{number: "3", head: "The Killing", lng: -96.73318, lat: 32.76324, zoom: 17, opacity: 1},
+		{number: "4", head: "The People", lng: -96.73413, lat: 32.76522, zoom: 17, opacity: 1},
+		{number: "5", head: "The Police", lng: -96.7371063, lat: 32.7628376, zoom: 15, opacity: 0},
+		{number: "6", head: "The Kid Who Got Out", lng: -96.7369, lat: 32.76185, zoom: 17, opacity: 1},
+		{number: "7", head: "Freddie’s Last Bust", lng: -96.73487, lat: 32.76461, zoom: 17, opacity: 1},
+		{number: "8", head: "The example", lng: -96.7371063, lat: 32.7628376, zoom: 15, opacity: 0}
+	];
+
+	locations = GeoJSON.parse(locations, {Point: ['lat', 'lng'], include: ['number', 'head', 'zoom', 'opacity']});
 
 	mapboxgl.accessToken = 'pk.eyJ1IjoibWFjbWFuIiwiYSI6ImVEbmNmZjAifQ.zVzy9cyjNT1tMYOTex51HQ';
 
@@ -96,37 +197,15 @@ $(document).ready(function() {
 					stops: [[1, 10], [8, 10], [16, 9]]
 				},
 				"circle-color": "#FBD44B",
-				"circle-opacity": 1
+				"circle-opacity": {
+					"property": "opacity",
+					"stops": [
+						[0, 0], [1, 1]
+					]
+				}
 			}
 		});
 
-		// on click, populate, position and add the popup to the map,
-		// then animate the map to the clicked position
-		map.on("click", function(e){
-			var features = map.queryRenderedFeatures(e.point, {layers: ['dixonCircle']});
-
-			if (!features.length) {
-				return;
-			}
-
-			var feature = features[0];
-
-			popup.remove();
-			popup = new mapboxgl.Popup();
-
-			popup.setLngLat(feature.geometry.coordinates)
-				.setHTML("<h5 class='mapHead'>" + feature.properties.head + "</h5>")
-				.addTo(map);
-
-			animateMap(features[0].geometry.coordinates, 17, 750, 0);
-
-		});
-
-		// when mousing over a feature (i.e., a dot on the map), make the cursor a pointer
-		map.on('mousemove', function(e) {
-			var features = map.queryRenderedFeatures(e.point, {layers: ['dixonCircle']});
-			map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
-		});
 	}
 
 
@@ -148,8 +227,6 @@ $(document).ready(function() {
 	// reseting the map to it's original orientation with a click of the reset button
 	$("#mapReset").on("click", function() {
 		animateMap(originalLoc, 15, 750, 0);
-		popup.remove();
-		popup = new mapboxgl.Popup();
 		currentLoc = "";
 	});
 
@@ -180,10 +257,11 @@ $(document).ready(function() {
 		// for each location section, if it's visible (i.e., above the windowBottom), push
 		// that section's id to the visibleLocs array
 		$.each($(".dixonMap"), function() {
-			if (windowBottom > $(this).offset().top + 350) {
+			if (windowBottom > $(this).offset().top + ($(window).height() / 2)) {
 				visibleLocs.push($(this).attr("id"));
 			}
 		});
+
 
 		// now, if everything goes right, the last id in the array is the card
 		// closest to the bottom of the screen
@@ -197,12 +275,7 @@ $(document).ready(function() {
 		if (visibleLocs[l-1] !== currentLoc && visibleLocs[l-1] !== undefined) {
 
 			// position the map
-			animateMap(locations.features[l-1].geometry.coordinates, 17, 750, 0);
-
-			// display the correspoinding popup for the current location
-			popup.setLngLat(locations.features[l-1].geometry.coordinates)
-				.setHTML("<h5 class='mapHead'>" + locations.features[l-1].properties.head + "</h5>")
-				.addTo(map);
+			animateMap(locations.features[l-1].geometry.coordinates, locations.features[l-1].properties.zoom, 750, 0);
 
 			// set the current location to the last visible location
 			currentLoc = visibleLocs[l-1];
@@ -211,17 +284,14 @@ $(document).ready(function() {
 
 		} else if (visibleLocs[l-1] === undefined) {
 			animateMap(originalLoc, 15, 750, 0);
-			popup.remove();
-			popup = new mapboxgl.Popup();
 			currentLoc = "";
 		}
 
 		// if we get all the way to the end, and the credits div scrolls into view,
 		// recenter and zoom the map to it's starting lat, long and zoom
-		if (windowBottom > $("#dixon8").offset().top + 350) {
+		if (windowBottom > $(".credits").offset().top) {
 			animateMap(originalLoc, 15, 750, 0);
-			popup.remove();
-			popup = new mapboxgl.Popup();
+			currentLoc = "";
 		}
 
 	}
@@ -229,97 +299,6 @@ $(document).ready(function() {
 	// throttle the updateLoc function to run every 600 milliseconds
 	$(window).on("scroll", _.throttle(updateLoc, 600));
 
-
-	$(window).scroll(function() {
-
-		var top = $(window).scrollTop();
-
-		// animate our reset and zoom controls based on if the black bar has scrolled out of view
-		if (top > 52) {
-			$("#mapReset").addClass("moved");
-			$(".mapboxgl-ctrl-top-right").addClass("moved");
-			$("#mapExpander").addClass("moved");
-		} else {
-			$("#mapReset").removeClass("moved");
-			$(".mapboxgl-ctrl-top-right").removeClass("moved");
-			$("#mapExpander").removeClass("moved");
-		}
-
-
-
-		//animate in our subchapter navigation to stay fixed at the top in each chapter
-		var dixonContent = $(".dixonContent");
-
-		$.each($(".dixonContent"), function() {
-			if (($(this).offset().top + 60) < top && ($(this).offset().top + $(this).height()) > (top + 50)) {
-				$(this).find($("ul")).addClass("stuck");
-			} else {
-				$(this).find($("ul")).removeClass("stuck");
-			}
-		});
-
-
-	});
-
-
-
-	// functions that control expanding the map on smaller screen sizes
-	function expandMap() {
-		if ($("#map").hasClass("viewable") === true) {
-			$("#map").removeClass("viewable");
-			$("#mapExpander").removeClass("fa-times").addClass("fa-map-marker");
-		} else {
-			$("#map").addClass("viewable");
-			$("#mapExpander").removeClass("fa-map-marker").addClass("fa-times");
-		}
-	}
-
-	$("#mapExpander").click(function() {
-		expandMap();
-	});
-
-	$(".mapper").click(function() {
-		expandMap();
-	});
-
-
-	////////////////////////////////////////////////
-	///// VIEWING STORIES WITHIN SECTIONS //////////
-	////////////////////////////////////////////////
-
-	var storyItem = $(".dixonStories ul li");
-
-	storyItem.click(function() {
-
-		var target = $(this).index();
-
-		var chapter = $(this).closest(".dixonSection").attr("id");
-
-		viewVignette(chapter, target);
-
-	});
-
-	$(".next").click(function() {
-		var chapter = $(this).closest(".dixonSection").attr("id");
-		var target = $(this).parent(".dixonStory").index();
-		viewVignette(chapter, target);
-	});
-
-	function viewVignette(chapter, target) {
-		var dixonCh = $("#" + chapter);
-
-		console.log(dixonCh);
-		dixonCh.find("ul").children("li").eq(target).addClass("activeItem").siblings("li").removeClass("activeItem");
-		dixonCh.find(".dixonStory").addClass("noShow").eq(target).removeClass("noShow");
-
-		var targetStory = dixonCh.find(".dixonStory").eq(target);
-
-		if (targetStory.offset().top <= $(window).scrollTop() ) {
-			$("html, body").animate({
-				scrollTop: (targetStory.offset().top - 80) + "px"
-			}, 250);
-		}
-	}
 
 
 });
